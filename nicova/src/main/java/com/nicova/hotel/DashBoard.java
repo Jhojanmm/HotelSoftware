@@ -5,6 +5,18 @@
 package com.nicova.hotel;
 
 import com.formdev.flatlaf.FlatLightLaf;
+import com.nicova.views.Clientes;
+import com.nicova.views.Ganancias;
+import com.nicova.views.Habitaciones;
+import com.nicova.views.Inventario;
+import com.nicova.views.Principal;
+import com.nicova.views.Reserva;
+import com.nicova.views.UpBooks;
+import java.awt.BorderLayout;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
+import java.util.Locale;
+import javax.swing.JPanel;
 
 /**
  *
@@ -18,11 +30,42 @@ public class DashBoard extends javax.swing.JFrame {
     public DashBoard() {
         initComponents();
         InitStyles();
+        SetDate();
+        InitContent();
+    }
+
+    private void InitContent() {
+        Principal pl = new Principal();
+        pl.setSize(806,604);
+        pl.setLocation(0,0);
+        
+        Content.removeAll();
+        Content.add(pl, BorderLayout.CENTER);
+        Content.revalidate();
+        Content.repaint();
     }
     
-    private void InitStyles(){
-        welcome.putClientProperty( "FlatLaf.styleClass", "h1" );
-        lblNicova.putClientProperty( "FlatLaf.styleClass", "h00" );
+    private void showContent(JPanel p){
+        p.setSize(806,604);
+        p.setLocation(0,0);
+        
+        Content.removeAll();
+        Content.add(p, BorderLayout.CENTER);
+        Content.revalidate();
+        Content.repaint();
+    }
+    
+    
+
+    private void SetDate() {
+        LocalDate now = LocalDate.now();
+        Locale spanishLocale = new Locale("es", "ES");
+        lblDate.setText(now.format(DateTimeFormatter.ofPattern("'Hoy es' EEEE dd 'de' MMMM 'de' yyyy", spanishLocale)));
+    }
+
+    private void InitStyles() {
+        lblDate.putClientProperty("FlatLaf.styleClass", "h1");
+        lblNicova.putClientProperty("FlatLaf.styleClass", "h00");
     }
 
     /**
@@ -36,44 +79,48 @@ public class DashBoard extends javax.swing.JFrame {
 
         background = new javax.swing.JPanel();
         Menu = new javax.swing.JPanel();
-        lblReserva = new javax.swing.JButton();
-        lblReserva1 = new javax.swing.JButton();
+        lblReservas = new javax.swing.JButton();
+        Principal = new javax.swing.JButton();
         lblReserva2 = new javax.swing.JButton();
         lblReserva3 = new javax.swing.JButton();
         lblReserva4 = new javax.swing.JButton();
         lblNicova = new javax.swing.JLabel();
+        lblCliente = new javax.swing.JButton();
+        jSeparator1 = new javax.swing.JSeparator();
         header = new javax.swing.JPanel();
-        jPanel1 = new javax.swing.JPanel();
-        welcome = new javax.swing.JLabel();
+        lblDate = new javax.swing.JLabel();
+        Content = new javax.swing.JPanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+
+        background.setPreferredSize(new java.awt.Dimension(1180, 850));
 
         Menu.setBackground(new java.awt.Color(38, 50, 56));
         Menu.setPreferredSize(new java.awt.Dimension(260, 640));
 
-        lblReserva.setIcon(new javax.swing.ImageIcon(getClass().getResource("/calendar.png"))); // NOI18N
-        lblReserva.setText("Reservas");
-        lblReserva.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 15, 1, 1, new java.awt.Color(0, 0, 0)));
-        lblReserva.setBorderPainted(false);
-        lblReserva.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        lblReserva.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        lblReserva.setIconTextGap(15);
-        lblReserva.addActionListener(new java.awt.event.ActionListener() {
+        lblReservas.setIcon(new javax.swing.ImageIcon(getClass().getResource("/calendar.png"))); // NOI18N
+        lblReservas.setText("Reservas");
+        lblReservas.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 15, 1, 1, new java.awt.Color(0, 0, 0)));
+        lblReservas.setBorderPainted(false);
+        lblReservas.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        lblReservas.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        lblReservas.setIconTextGap(15);
+        lblReservas.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                lblReservaActionPerformed(evt);
+                lblReservasActionPerformed(evt);
             }
         });
 
-        lblReserva1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/user (1).png"))); // NOI18N
-        lblReserva1.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 15, 1, 1, new java.awt.Color(0, 0, 0)));
-        lblReserva1.setBorderPainted(false);
-        lblReserva1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        lblReserva1.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        lblReserva1.setIconTextGap(15);
-        lblReserva1.setLabel("Clientes");
-        lblReserva1.addActionListener(new java.awt.event.ActionListener() {
+        Principal.setIcon(new javax.swing.ImageIcon(getClass().getResource("/apps.png"))); // NOI18N
+        Principal.setText("Principal");
+        Principal.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 15, 1, 1, new java.awt.Color(0, 0, 0)));
+        Principal.setBorderPainted(false);
+        Principal.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        Principal.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        Principal.setIconTextGap(15);
+        Principal.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                lblReserva1ActionPerformed(evt);
+                PrincipalActionPerformed(evt);
             }
         });
 
@@ -119,41 +166,63 @@ public class DashBoard extends javax.swing.JFrame {
         lblNicova.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lblNicova.setText("NICOVA");
 
+        lblCliente.setIcon(new javax.swing.ImageIcon(getClass().getResource("/user (1).png"))); // NOI18N
+        lblCliente.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 15, 1, 1, new java.awt.Color(0, 0, 0)));
+        lblCliente.setBorderPainted(false);
+        lblCliente.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        lblCliente.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        lblCliente.setIconTextGap(15);
+        lblCliente.setLabel("Clientes");
+        lblCliente.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                lblClienteActionPerformed(evt);
+            }
+        });
+
+        jSeparator1.setBackground(new java.awt.Color(255, 255, 255));
+        jSeparator1.setForeground(new java.awt.Color(255, 255, 255));
+        jSeparator1.setPreferredSize(new java.awt.Dimension(50, 30));
+
         javax.swing.GroupLayout MenuLayout = new javax.swing.GroupLayout(Menu);
         Menu.setLayout(MenuLayout);
         MenuLayout.setHorizontalGroup(
             MenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(lblNicova, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(lblNicova, javax.swing.GroupLayout.PREFERRED_SIZE, 260, javax.swing.GroupLayout.PREFERRED_SIZE)
             .addGroup(MenuLayout.createSequentialGroup()
-                .addGroup(MenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(lblReserva1, javax.swing.GroupLayout.PREFERRED_SIZE, 260, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(lblReserva4, javax.swing.GroupLayout.PREFERRED_SIZE, 260, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(lblReserva2, javax.swing.GroupLayout.PREFERRED_SIZE, 260, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(lblReserva3, javax.swing.GroupLayout.PREFERRED_SIZE, 260, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(lblReserva, javax.swing.GroupLayout.PREFERRED_SIZE, 260, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(0, 0, Short.MAX_VALUE))
+                .addGap(50, 50, 50)
+                .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addComponent(lblReservas, javax.swing.GroupLayout.PREFERRED_SIZE, 260, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addComponent(lblReserva4, javax.swing.GroupLayout.PREFERRED_SIZE, 260, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addComponent(Principal, javax.swing.GroupLayout.PREFERRED_SIZE, 260, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addComponent(lblCliente, javax.swing.GroupLayout.PREFERRED_SIZE, 260, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addComponent(lblReserva2, javax.swing.GroupLayout.PREFERRED_SIZE, 260, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addComponent(lblReserva3, javax.swing.GroupLayout.PREFERRED_SIZE, 260, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
         MenuLayout.setVerticalGroup(
             MenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(MenuLayout.createSequentialGroup()
                 .addGap(37, 37, 37)
                 .addComponent(lblNicova, javax.swing.GroupLayout.PREFERRED_SIZE, 118, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(5, 5, 5)
+                .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(50, 50, 50)
                 .addGroup(MenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(MenuLayout.createSequentialGroup()
-                        .addGap(53, 53, 53)
-                        .addComponent(lblReserva1, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(44, 44, 44)
-                        .addGroup(MenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(MenuLayout.createSequentialGroup()
-                                .addGap(50, 50, 50)
-                                .addComponent(lblReserva4, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(lblReserva2, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(MenuLayout.createSequentialGroup()
-                                .addGap(100, 100, 100)
-                                .addComponent(lblReserva3, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                        .addGap(100, 100, 100)
+                        .addComponent(lblReservas, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(MenuLayout.createSequentialGroup()
-                        .addGap(103, 103, 103)
-                        .addComponent(lblReserva, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                        .addGap(200, 200, 200)
+                        .addComponent(lblReserva4, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(Principal, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(MenuLayout.createSequentialGroup()
+                        .addGap(50, 50, 50)
+                        .addComponent(lblCliente, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(MenuLayout.createSequentialGroup()
+                        .addGap(150, 150, 150)
+                        .addComponent(lblReserva2, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(MenuLayout.createSequentialGroup()
+                        .addGap(250, 250, 250)
+                        .addComponent(lblReserva3, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE))))
         );
 
         header.setBackground(new java.awt.Color(153, 153, 153));
@@ -166,23 +235,21 @@ public class DashBoard extends javax.swing.JFrame {
         );
         headerLayout.setVerticalGroup(
             headerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 200, Short.MAX_VALUE)
+            .addGap(0, 150, Short.MAX_VALUE)
         );
 
-        jPanel1.setBackground(new java.awt.Color(255, 255, 255));
+        Content.setBackground(new java.awt.Color(255, 255, 255));
 
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        javax.swing.GroupLayout ContentLayout = new javax.swing.GroupLayout(Content);
+        Content.setLayout(ContentLayout);
+        ContentLayout.setHorizontalGroup(
+            ContentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGap(0, 0, Short.MAX_VALUE)
         );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        ContentLayout.setVerticalGroup(
+            ContentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGap(0, 0, Short.MAX_VALUE)
         );
-
-        welcome.setText("Bienvenido a Nicova!");
 
         javax.swing.GroupLayout backgroundLayout = new javax.swing.GroupLayout(background);
         background.setLayout(backgroundLayout);
@@ -192,30 +259,30 @@ public class DashBoard extends javax.swing.JFrame {
                 .addComponent(Menu, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGroup(backgroundLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(header, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(Content, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(backgroundLayout.createSequentialGroup()
                         .addGap(6, 6, 6)
-                        .addComponent(welcome, javax.swing.GroupLayout.DEFAULT_SIZE, 242, Short.MAX_VALUE)
-                        .addGap(559, 559, 559))
-                    .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                        .addComponent(lblDate, javax.swing.GroupLayout.PREFERRED_SIZE, 465, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addContainerGap(339, Short.MAX_VALUE))))
         );
         backgroundLayout.setVerticalGroup(
             backgroundLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(Menu, javax.swing.GroupLayout.DEFAULT_SIZE, 850, Short.MAX_VALUE)
+            .addComponent(Menu, javax.swing.GroupLayout.PREFERRED_SIZE, 850, javax.swing.GroupLayout.PREFERRED_SIZE)
             .addGroup(backgroundLayout.createSequentialGroup()
                 .addGap(6, 6, 6)
                 .addGroup(backgroundLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(backgroundLayout.createSequentialGroup()
                         .addGap(34, 34, 34)
                         .addComponent(header, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(welcome, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(lblDate, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addComponent(Content, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(background, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(background, javax.swing.GroupLayout.DEFAULT_SIZE, 1070, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -226,25 +293,29 @@ public class DashBoard extends javax.swing.JFrame {
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void lblReservaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_lblReservaActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_lblReservaActionPerformed
+    private void lblReservasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_lblReservasActionPerformed
+        showContent(new Reserva());
+    }//GEN-LAST:event_lblReservasActionPerformed
 
-    private void lblReserva1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_lblReserva1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_lblReserva1ActionPerformed
+    private void PrincipalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_PrincipalActionPerformed
+        showContent(new Principal());
+    }//GEN-LAST:event_PrincipalActionPerformed
 
     private void lblReserva2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_lblReserva2ActionPerformed
-        // TODO add your handling code here:
+        showContent(new Inventario());
     }//GEN-LAST:event_lblReserva2ActionPerformed
 
     private void lblReserva3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_lblReserva3ActionPerformed
-        // TODO add your handling code here:
+        showContent(new Ganancias());
     }//GEN-LAST:event_lblReserva3ActionPerformed
 
     private void lblReserva4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_lblReserva4ActionPerformed
-        // TODO add your handling code here:
+        showContent(new Habitaciones());
     }//GEN-LAST:event_lblReserva4ActionPerformed
+
+    private void lblClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_lblClienteActionPerformed
+        showContent(new UpBooks());
+    }//GEN-LAST:event_lblClienteActionPerformed
 
     /**
      * @param args the command line arguments
@@ -279,16 +350,18 @@ public class DashBoard extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JPanel Content;
     private javax.swing.JPanel Menu;
+    private javax.swing.JButton Principal;
     private javax.swing.JPanel background;
     private javax.swing.JPanel header;
-    private javax.swing.JPanel jPanel1;
+    private javax.swing.JSeparator jSeparator1;
+    private javax.swing.JButton lblCliente;
+    private javax.swing.JLabel lblDate;
     private javax.swing.JLabel lblNicova;
-    private javax.swing.JButton lblReserva;
-    private javax.swing.JButton lblReserva1;
     private javax.swing.JButton lblReserva2;
     private javax.swing.JButton lblReserva3;
     private javax.swing.JButton lblReserva4;
-    private javax.swing.JLabel welcome;
+    private javax.swing.JButton lblReservas;
     // End of variables declaration//GEN-END:variables
 }
