@@ -4,6 +4,13 @@
 
 package com.nicova.hotel;
 
+import com.formdev.flatlaf.intellijthemes.materialthemeuilite.FlatDraculaContrastIJTheme;
+import com.formdev.flatlaf.intellijthemes.materialthemeuilite.FlatGitHubIJTheme;
+import com.formdev.flatlaf.intellijthemes.materialthemeuilite.FlatMaterialDarkerIJTheme;
+import com.formdev.flatlaf.intellijthemes.materialthemeuilite.FlatMaterialOceanicIJTheme;
+
+
+
 /**
  *
  * @author jhoja
@@ -11,6 +18,8 @@ package com.nicova.hotel;
 public class Nicova {
 
     public static void main(String[] args) {
-        System.out.println("Hello World!");
+        FlatMaterialOceanicIJTheme.setup();
+        DashBoard ventana = new DashBoard();
+        ventana.setVisible(true);
     }
 }

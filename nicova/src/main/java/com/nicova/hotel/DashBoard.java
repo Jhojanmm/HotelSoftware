@@ -4,6 +4,8 @@
  */
 package com.nicova.hotel;
 
+import com.formdev.flatlaf.FlatLightLaf;
+
 /**
  *
  * @author jhoja
@@ -15,6 +17,12 @@ public class DashBoard extends javax.swing.JFrame {
      */
     public DashBoard() {
         initComponents();
+        InitStyles();
+    }
+    
+    private void InitStyles(){
+        welcome.putClientProperty( "FlatLaf.styleClass", "h1" );
+        lblNicova.putClientProperty( "FlatLaf.styleClass", "h00" );
     }
 
     /**
@@ -26,31 +34,224 @@ public class DashBoard extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        background = new javax.swing.JPanel();
+        Menu = new javax.swing.JPanel();
+        lblReserva = new javax.swing.JButton();
+        lblReserva1 = new javax.swing.JButton();
+        lblReserva2 = new javax.swing.JButton();
+        lblReserva3 = new javax.swing.JButton();
+        lblReserva4 = new javax.swing.JButton();
+        lblNicova = new javax.swing.JLabel();
+        header = new javax.swing.JPanel();
+        jPanel1 = new javax.swing.JPanel();
+        welcome = new javax.swing.JLabel();
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+
+        Menu.setBackground(new java.awt.Color(38, 50, 56));
+        Menu.setPreferredSize(new java.awt.Dimension(260, 640));
+
+        lblReserva.setIcon(new javax.swing.ImageIcon(getClass().getResource("/calendar.png"))); // NOI18N
+        lblReserva.setText("Reservas");
+        lblReserva.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 15, 1, 1, new java.awt.Color(0, 0, 0)));
+        lblReserva.setBorderPainted(false);
+        lblReserva.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        lblReserva.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        lblReserva.setIconTextGap(15);
+        lblReserva.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                lblReservaActionPerformed(evt);
+            }
+        });
+
+        lblReserva1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/user (1).png"))); // NOI18N
+        lblReserva1.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 15, 1, 1, new java.awt.Color(0, 0, 0)));
+        lblReserva1.setBorderPainted(false);
+        lblReserva1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        lblReserva1.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        lblReserva1.setIconTextGap(15);
+        lblReserva1.setLabel("Clientes");
+        lblReserva1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                lblReserva1ActionPerformed(evt);
+            }
+        });
+
+        lblReserva2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/edit (3).png"))); // NOI18N
+        lblReserva2.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 15, 1, 1, new java.awt.Color(0, 0, 0)));
+        lblReserva2.setBorderPainted(false);
+        lblReserva2.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        lblReserva2.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        lblReserva2.setIconTextGap(15);
+        lblReserva2.setLabel("Inventario");
+        lblReserva2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                lblReserva2ActionPerformed(evt);
+            }
+        });
+
+        lblReserva3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/stats.png"))); // NOI18N
+        lblReserva3.setText("Ganancias");
+        lblReserva3.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 15, 1, 1, new java.awt.Color(0, 0, 0)));
+        lblReserva3.setBorderPainted(false);
+        lblReserva3.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        lblReserva3.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        lblReserva3.setIconTextGap(15);
+        lblReserva3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                lblReserva3ActionPerformed(evt);
+            }
+        });
+
+        lblReserva4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/home.png"))); // NOI18N
+        lblReserva4.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 15, 1, 1, new java.awt.Color(0, 0, 0)));
+        lblReserva4.setBorderPainted(false);
+        lblReserva4.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        lblReserva4.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        lblReserva4.setIconTextGap(15);
+        lblReserva4.setLabel("Habitaciones");
+        lblReserva4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                lblReserva4ActionPerformed(evt);
+            }
+        });
+
+        lblNicova.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblNicova.setText("NICOVA");
+
+        javax.swing.GroupLayout MenuLayout = new javax.swing.GroupLayout(Menu);
+        Menu.setLayout(MenuLayout);
+        MenuLayout.setHorizontalGroup(
+            MenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(lblNicova, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(MenuLayout.createSequentialGroup()
+                .addGroup(MenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(lblReserva1, javax.swing.GroupLayout.PREFERRED_SIZE, 260, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lblReserva4, javax.swing.GroupLayout.PREFERRED_SIZE, 260, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lblReserva2, javax.swing.GroupLayout.PREFERRED_SIZE, 260, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lblReserva3, javax.swing.GroupLayout.PREFERRED_SIZE, 260, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lblReserva, javax.swing.GroupLayout.PREFERRED_SIZE, 260, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(0, 0, Short.MAX_VALUE))
+        );
+        MenuLayout.setVerticalGroup(
+            MenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(MenuLayout.createSequentialGroup()
+                .addGap(37, 37, 37)
+                .addComponent(lblNicova, javax.swing.GroupLayout.PREFERRED_SIZE, 118, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(MenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(MenuLayout.createSequentialGroup()
+                        .addGap(53, 53, 53)
+                        .addComponent(lblReserva1, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(44, 44, 44)
+                        .addGroup(MenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(MenuLayout.createSequentialGroup()
+                                .addGap(50, 50, 50)
+                                .addComponent(lblReserva4, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(lblReserva2, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(MenuLayout.createSequentialGroup()
+                                .addGap(100, 100, 100)
+                                .addComponent(lblReserva3, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                    .addGroup(MenuLayout.createSequentialGroup()
+                        .addGap(103, 103, 103)
+                        .addComponent(lblReserva, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE))))
+        );
+
+        header.setBackground(new java.awt.Color(153, 153, 153));
+
+        javax.swing.GroupLayout headerLayout = new javax.swing.GroupLayout(header);
+        header.setLayout(headerLayout);
+        headerLayout.setHorizontalGroup(
+            headerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 0, Short.MAX_VALUE)
+        );
+        headerLayout.setVerticalGroup(
+            headerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 200, Short.MAX_VALUE)
+        );
+
+        jPanel1.setBackground(new java.awt.Color(255, 255, 255));
+
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 0, Short.MAX_VALUE)
+        );
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 0, Short.MAX_VALUE)
+        );
+
+        welcome.setText("Bienvenido a Nicova!");
+
+        javax.swing.GroupLayout backgroundLayout = new javax.swing.GroupLayout(background);
+        background.setLayout(backgroundLayout);
+        backgroundLayout.setHorizontalGroup(
+            backgroundLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(backgroundLayout.createSequentialGroup()
+                .addComponent(Menu, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(backgroundLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(header, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addGroup(backgroundLayout.createSequentialGroup()
+                        .addGap(6, 6, 6)
+                        .addComponent(welcome, javax.swing.GroupLayout.DEFAULT_SIZE, 242, Short.MAX_VALUE)
+                        .addGap(559, 559, 559))
+                    .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+        );
+        backgroundLayout.setVerticalGroup(
+            backgroundLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(Menu, javax.swing.GroupLayout.DEFAULT_SIZE, 850, Short.MAX_VALUE)
+            .addGroup(backgroundLayout.createSequentialGroup()
+                .addGap(6, 6, 6)
+                .addGroup(backgroundLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(backgroundLayout.createSequentialGroup()
+                        .addGap(34, 34, 34)
+                        .addComponent(header, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(welcome, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
+            .addComponent(background, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
+            .addComponent(background, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
+
+    private void lblReservaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_lblReservaActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_lblReservaActionPerformed
+
+    private void lblReserva1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_lblReserva1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_lblReserva1ActionPerformed
+
+    private void lblReserva2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_lblReserva2ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_lblReserva2ActionPerformed
+
+    private void lblReserva3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_lblReserva3ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_lblReserva3ActionPerformed
+
+    private void lblReserva4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_lblReserva4ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_lblReserva4ActionPerformed
 
     /**
      * @param args the command line arguments
      */
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
+        FlatLightLaf.setup();
         try {
             for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
                 if ("Nimbus".equals(info.getName())) {
@@ -78,5 +279,16 @@ public class DashBoard extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JPanel Menu;
+    private javax.swing.JPanel background;
+    private javax.swing.JPanel header;
+    private javax.swing.JPanel jPanel1;
+    private javax.swing.JLabel lblNicova;
+    private javax.swing.JButton lblReserva;
+    private javax.swing.JButton lblReserva1;
+    private javax.swing.JButton lblReserva2;
+    private javax.swing.JButton lblReserva3;
+    private javax.swing.JButton lblReserva4;
+    private javax.swing.JLabel welcome;
     // End of variables declaration//GEN-END:variables
 }
