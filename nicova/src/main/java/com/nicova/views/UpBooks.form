@@ -71,10 +71,7 @@
                                   <Component id="catLbl" max="32767" attributes="0"/>
                                   <EmptySpace min="213" pref="213" max="-2" attributes="0"/>
                               </Group>
-                              <Group type="102" alignment="0" attributes="0">
-                                  <Component id="titleLbl" max="32767" attributes="0"/>
-                                  <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
-                              </Group>
+                              <Component id="titleLbl" alignment="0" max="32767" attributes="0"/>
                               <Component id="titleTxt" alignment="0" max="32767" attributes="0"/>
                               <Group type="102" alignment="0" attributes="0">
                                   <Component id="dateLbl" max="32767" attributes="0"/>
@@ -287,6 +284,9 @@
         </Component>
         <Component class="javax.swing.JButton" name="Button">
           <Properties>
+            <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+              <Color blue="66" green="33" red="ff" type="rgb"/>
+            </Property>
             <Property name="text" type="java.lang.String" value="AGREGAR CLIENTE"/>
           </Properties>
           <Events>

@@ -93,7 +93,6 @@ public class DashBoard extends javax.swing.JFrame {
         lblCliente = new javax.swing.JButton();
         jSeparator1 = new javax.swing.JSeparator();
         header = new javax.swing.JPanel();
-        rSProgressCircle1 = new rojerusan.componentes.RSProgressCircle();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
@@ -238,9 +237,6 @@ public class DashBoard extends javax.swing.JFrame {
 
         header.setBackground(new java.awt.Color(153, 153, 153));
 
-        rSProgressCircle1.setForeground(new java.awt.Color(38, 50, 56));
-        rSProgressCircle1.setColorText(new java.awt.Color(255, 255, 255));
-
         jLabel1.setBackground(new java.awt.Color(255, 255, 255));
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setText("Capacidad Ocupada");
@@ -265,13 +261,8 @@ public class DashBoard extends javax.swing.JFrame {
         headerLayout.setHorizontalGroup(
             headerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(headerLayout.createSequentialGroup()
-                .addGroup(headerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(headerLayout.createSequentialGroup()
-                        .addGap(65, 65, 65)
-                        .addComponent(rSProgressCircle1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(headerLayout.createSequentialGroup()
-                        .addGap(75, 75, 75)
-                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 146, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(75, 75, 75)
+                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 146, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 114, Short.MAX_VALUE)
                 .addGroup(headerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(headerLayout.createSequentialGroup()
@@ -296,10 +287,7 @@ public class DashBoard extends javax.swing.JFrame {
                         .addComponent(jLabel4)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(jLabel5))
-                    .addGroup(headerLayout.createSequentialGroup()
-                        .addComponent(jLabel1)
-                        .addGap(18, 18, 18)
-                        .addComponent(rSProgressCircle1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addComponent(jLabel1))
                 .addContainerGap(23, Short.MAX_VALUE))
         );
 
@@ -432,6 +420,5 @@ public class DashBoard extends javax.swing.JFrame {
     private javax.swing.JButton lblReserva3;
     private javax.swing.JButton lblReserva4;
     private javax.swing.JButton lblReservas;
-    private rojerusan.componentes.RSProgressCircle rSProgressCircle1;
     // End of variables declaration//GEN-END:variables
 }
