@@ -50,7 +50,7 @@ public class Habitaciones extends javax.swing.JPanel {
                 {null, null, null, null}
             },
             new String [] {
-                "Habitacion", "camas", "baños", "precio"
+                "Habitacion", "camas", "almohadas", "precio"
             }
         ));
         jScrollPane2.setViewportView(jTable1);
