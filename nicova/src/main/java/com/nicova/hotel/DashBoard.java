@@ -13,9 +13,14 @@ import com.nicova.views.Principal;
 import com.nicova.views.Reserva;
 import com.nicova.views.UpBooks;
 import java.awt.BorderLayout;
+import java.io.File;
+import java.io.IOException;
+import java.security.GeneralSecurityException;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.Locale;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JPanel;
 
 /**
@@ -27,11 +32,36 @@ public class DashBoard extends javax.swing.JFrame {
     /**
      * Creates new form DashBoard
      */
-    public DashBoard() {
+    public DashBoard() throws GeneralSecurityException {
         initComponents();
         InitStyles();
         SetDate();
         InitContent();
+        
+        String rutaArchivo = "C:\\Nicova\\clientes.csv";
+        verificarYCrearArchivoCSV(rutaArchivo);
+        //GoogleSheetsToCSV.main();
+        
+        //csvToSheet.main();
+    }
+    
+    public static void verificarYCrearArchivoCSV(String rutaArchivo) throws GeneralSecurityException {
+        File archivoCSV = new File(rutaArchivo);
+
+        if (archivoCSV.exists()) {
+            System.out.println("El archivo clientes.csv ya existe en la ubicación especificada.");
+        } else {
+            try {
+                if (archivoCSV.createNewFile()) {
+                    GoogleSheetsToCSV.main();
+                    System.out.println("El archivo clientes.csv ha sido creado correctamente.");
+                } else {
+                    System.out.println("No se pudo crear el archivo clientes.csv.");
+                }
+            } catch (IOException e) {
+                System.out.println("Error al crear el archivo clientes.csv: " + e.getMessage());
+            }
+        }
     }
 
     private void InitContent() {
@@ -396,7 +426,11 @@ public class DashBoard extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new DashBoard().setVisible(true);
+                try {
+                    new DashBoard().setVisible(true);
+                } catch (GeneralSecurityException ex) {
+                    Logger.getLogger(DashBoard.class.getName()).log(Level.SEVERE, null, ex);
+                }
             }
         });
     }

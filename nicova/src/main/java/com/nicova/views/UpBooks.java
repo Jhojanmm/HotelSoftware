@@ -1,28 +1,41 @@
-
-
-
 package com.nicova.views;
+
 import java.awt.Color;
+import java.util.ArrayList;
+import java.util.List;
+import javax.swing.JOptionPane;
 
 public class UpBooks extends javax.swing.JPanel {
-
 
     public UpBooks() {
         initComponents();
         InitStyles();
     }
+
     private void InitStyles() {
         title.putClientProperty("FlatLaf.styleClass", "h1");
-        titleTxt.putClientProperty("JTextField.placeholderText", "Ingrese el Nombre Completo.");
-        dateTxt.putClientProperty("JTextField.placeholderText", "Ingrese el Numero de documento.");
-        authorTxt.putClientProperty("JTextField.placeholderText", "Ingrese la Nacionalidad.");
-        catTxt.putClientProperty("JTextField.placeholderText", "Ingrese el Correo Electronico");
-        edTxt.putClientProperty("JTextField.placeholderText", "Ingrese Numero de contacto.");
-        langTxt.putClientProperty("JTextField.placeholderText", "Ingrese el Metodo de pago.");
-        pagsTxt.putClientProperty("JTextField.placeholderText", "Ingrese el Tipo de Persona.");
-        descTxt.putClientProperty("JTextField.placeholderText", "Ingrese la Fecha de nacimiento.");
-        ejemTxt.putClientProperty("JTextField.placeholderText", "Ingrese la Direccion de residencia.");
+        NameTxt.putClientProperty("JTextField.placeholderText", "Ingrese el Nombre Completo.");
+        DocumentTxt.putClientProperty("JTextField.placeholderText", "Ingrese el Numero de documento.");
+        EmaiTxt.putClientProperty("JTextField.placeholderText", "Ingrese el Correo Electronico");
+        PhoneTxt.putClientProperty("JTextField.placeholderText", "Ingrese el Telefono.");
+        OccupationTxt.putClientProperty("JTextField.placeholderText", "Ingrese la Ocupación.");
+        AddressTxt.putClientProperty("JTextField.placeholderText", "Ingrese la Direccion de Domicilio.");
 
+    }
+
+    private String[] Save() {
+        String[] data = {NameTxt.getText(), DocumentTxt.getText(), EmaiTxt.getText(), PhoneTxt.getText(), OccupationTxt.getText(), AddressTxt.getText()};
+
+        return data;
+    }
+
+    private void Clear() {
+        NameTxt.setText("");
+        DocumentTxt.setText("");
+        EmaiTxt.setText("");
+        PhoneTxt.setText("");
+        OccupationTxt.setText("");
+        AddressTxt.setText("");
     }
 
     /**
@@ -38,24 +51,18 @@ public class UpBooks extends javax.swing.JPanel {
         bg = new javax.swing.JPanel();
         title = new javax.swing.JLabel();
         titleLbl = new javax.swing.JLabel();
-        titleTxt = new javax.swing.JTextField();
+        NameTxt = new javax.swing.JTextField();
         dateLbl = new javax.swing.JLabel();
-        dateTxt = new javax.swing.JTextField();
-        authorLbl = new javax.swing.JLabel();
-        authorTxt = new javax.swing.JTextField();
+        DocumentTxt = new javax.swing.JTextField();
         catLbl = new javax.swing.JLabel();
-        catTxt = new javax.swing.JTextField();
-        edLbl = new javax.swing.JLabel();
-        edTxt = new javax.swing.JTextField();
+        EmaiTxt = new javax.swing.JTextField();
         jSeparator1 = new javax.swing.JSeparator();
-        langLbl = new javax.swing.JLabel();
-        langTxt = new javax.swing.JTextField();
         pagsLbl = new javax.swing.JLabel();
-        pagsTxt = new javax.swing.JTextField();
+        PhoneTxt = new javax.swing.JTextField();
         descLbl = new javax.swing.JLabel();
-        descTxt = new javax.swing.JTextField();
+        OccupationTxt = new javax.swing.JTextField();
         ejemLbl = new javax.swing.JLabel();
-        ejemTxt = new javax.swing.JTextField();
+        AddressTxt = new javax.swing.JTextField();
         Button = new javax.swing.JButton();
 
         setBackground(new java.awt.Color(40, 55, 62));
@@ -68,39 +75,31 @@ public class UpBooks extends javax.swing.JPanel {
 
         titleLbl.setText("Nombre Completo");
 
-        titleTxt.addActionListener(new java.awt.event.ActionListener() {
+        NameTxt.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                titleTxtActionPerformed(evt);
+                NameTxtActionPerformed(evt);
             }
         });
 
         dateLbl.setText("Numero de documento");
 
-        authorLbl.setText("Nacionalidad");
-
         catLbl.setText("Correo Electrónico");
-
-        edLbl.setText("Numero de Contacto");
 
         jSeparator1.setForeground(new java.awt.Color(204, 204, 204));
         jSeparator1.setOrientation(javax.swing.SwingConstants.VERTICAL);
         jSeparator1.setPreferredSize(new java.awt.Dimension(200, 10));
 
-        langLbl.setText("Método de pago");
+        pagsLbl.setText("Telefono");
 
-        langTxt.setToolTipText("");
+        PhoneTxt.setToolTipText("");
 
-        pagsLbl.setText("Tipo de persona");
+        descLbl.setText("Ocupación");
 
-        pagsTxt.setToolTipText("");
-
-        descLbl.setText("Fecha de Nacimiento");
-
-        descTxt.setToolTipText("");
+        OccupationTxt.setToolTipText("");
 
         ejemLbl.setText("Direccion de Residencia");
 
-        ejemTxt.setToolTipText("");
+        AddressTxt.setToolTipText("");
 
         Button.setForeground(new java.awt.Color(255, 51, 102));
         Button.setText("AGREGAR CLIENTE");
@@ -119,46 +118,34 @@ public class UpBooks extends javax.swing.JPanel {
                 .addGroup(bgLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(bgLayout.createSequentialGroup()
                         .addGroup(bgLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(catTxt)
-                            .addComponent(authorTxt)
-                            .addGroup(bgLayout.createSequentialGroup()
-                                .addComponent(authorLbl, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addGap(233, 233, 233))
+                            .addComponent(EmaiTxt)
                             .addGroup(bgLayout.createSequentialGroup()
                                 .addComponent(catLbl, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addGap(213, 213, 213))
                             .addComponent(titleLbl, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(titleTxt)
+                            .addComponent(NameTxt)
                             .addGroup(bgLayout.createSequentialGroup()
                                 .addComponent(dateLbl, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addGap(161, 161, 161))
-                            .addComponent(dateTxt)
-                            .addComponent(edTxt, javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addGroup(bgLayout.createSequentialGroup()
-                                .addComponent(edLbl, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addGap(227, 227, 227)))
+                            .addComponent(DocumentTxt))
                         .addGap(30, 30, 30)
                         .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(40, 40, 40)
                         .addGroup(bgLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(bgLayout.createSequentialGroup()
                                 .addGroup(bgLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(langTxt)
-                                    .addGroup(bgLayout.createSequentialGroup()
-                                        .addComponent(langLbl, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                        .addGap(228, 228, 228))
-                                    .addComponent(pagsTxt)
+                                    .addComponent(PhoneTxt)
                                     .addGroup(bgLayout.createSequentialGroup()
                                         .addComponent(pagsLbl, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                         .addGap(223, 223, 223))
                                     .addGroup(bgLayout.createSequentialGroup()
                                         .addComponent(descLbl, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                         .addGap(206, 206, 206))
-                                    .addComponent(descTxt)
+                                    .addComponent(OccupationTxt)
                                     .addGroup(bgLayout.createSequentialGroup()
                                         .addComponent(ejemLbl, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                         .addGap(208, 208, 208))
-                                    .addComponent(ejemTxt))
+                                    .addComponent(AddressTxt))
                                 .addGap(72, 72, 72))
                             .addGroup(bgLayout.createSequentialGroup()
                                 .addGap(42, 42, 42)
@@ -176,47 +163,37 @@ public class UpBooks extends javax.swing.JPanel {
                 .addGap(0, 0, 0)
                 .addGroup(bgLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(bgLayout.createSequentialGroup()
-                        .addComponent(langLbl, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(0, 0, 0)
-                        .addComponent(langTxt, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(pagsLbl, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(0, 0, 0)
-                        .addComponent(pagsTxt, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(PhoneTxt, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 0, 0)
                         .addComponent(descLbl, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(0, 0, 0)
-                        .addComponent(descTxt, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
+                        .addComponent(OccupationTxt, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 0, 0)
                         .addComponent(ejemLbl, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(ejemTxt, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 0, 0)
+                        .addComponent(AddressTxt, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(43, 43, 43)
                         .addComponent(Button, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 157, Short.MAX_VALUE))
-                    .addComponent(jSeparator1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addContainerGap(276, Short.MAX_VALUE))
                     .addGroup(bgLayout.createSequentialGroup()
                         .addComponent(titleLbl, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(titleTxt, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGap(0, 0, 0)
+                        .addComponent(NameTxt, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 0, 0)
                         .addComponent(dateLbl, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(0, 0, 0)
-                        .addComponent(dateTxt, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(authorLbl, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(DocumentTxt, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(0, 0, 0)
-                        .addComponent(authorTxt, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(11, 11, 11)
                         .addComponent(catLbl, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(0, 0, 0)
-                        .addComponent(catTxt, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(edLbl, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(edTxt, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 0, Short.MAX_VALUE)))
-                .addGap(22, 22, 22))
+                        .addComponent(EmaiTxt, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addGroup(bgLayout.createSequentialGroup()
+                        .addComponent(jSeparator1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGap(22, 22, 22))))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
@@ -235,37 +212,34 @@ public class UpBooks extends javax.swing.JPanel {
         getAccessibleContext().setAccessibleParent(bg);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void titleTxtActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_titleTxtActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_titleTxtActionPerformed
-
     private void ButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonActionPerformed
-        // TODO add your handling code here:
+        String[] data = Save();
+        com.nicova.controllers.AddClient.main(data);
+        JOptionPane.showMessageDialog(null, "Cliente Agregado Correctamente", "Usuario Creado", JOptionPane.INFORMATION_MESSAGE);
+        Clear();
     }//GEN-LAST:event_ButtonActionPerformed
 
+    private void NameTxtActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_NameTxtActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_NameTxtActionPerformed
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JTextField AddressTxt;
     private javax.swing.JButton Button;
-    private javax.swing.JLabel authorLbl;
-    private javax.swing.JTextField authorTxt;
+    private javax.swing.JTextField DocumentTxt;
+    private javax.swing.JTextField EmaiTxt;
+    private javax.swing.JTextField NameTxt;
+    private javax.swing.JTextField OccupationTxt;
+    private javax.swing.JTextField PhoneTxt;
     private javax.swing.JPanel bg;
     private javax.swing.JLabel catLbl;
-    private javax.swing.JTextField catTxt;
     private javax.swing.JLabel dateLbl;
-    private javax.swing.JTextField dateTxt;
     private javax.swing.JLabel descLbl;
-    private javax.swing.JTextField descTxt;
-    private javax.swing.JLabel edLbl;
-    private javax.swing.JTextField edTxt;
     private javax.swing.JLabel ejemLbl;
-    private javax.swing.JTextField ejemTxt;
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JSeparator jSeparator2;
-    private javax.swing.JLabel langLbl;
-    private javax.swing.JTextField langTxt;
     private javax.swing.JLabel pagsLbl;
-    private javax.swing.JTextField pagsTxt;
     private javax.swing.JLabel title;
     private javax.swing.JLabel titleLbl;
-    private javax.swing.JTextField titleTxt;
     // End of variables declaration//GEN-END:variables
 }

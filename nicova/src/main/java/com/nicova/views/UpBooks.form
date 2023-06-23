@@ -61,28 +61,18 @@
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" attributes="0">
                           <Group type="103" groupAlignment="0" attributes="0">
-                              <Component id="catTxt" alignment="0" max="32767" attributes="0"/>
-                              <Component id="authorTxt" alignment="0" max="32767" attributes="0"/>
-                              <Group type="102" alignment="0" attributes="0">
-                                  <Component id="authorLbl" max="32767" attributes="0"/>
-                                  <EmptySpace min="233" pref="233" max="-2" attributes="0"/>
-                              </Group>
+                              <Component id="EmaiTxt" alignment="0" max="32767" attributes="0"/>
                               <Group type="102" alignment="0" attributes="0">
                                   <Component id="catLbl" max="32767" attributes="0"/>
                                   <EmptySpace min="213" pref="213" max="-2" attributes="0"/>
                               </Group>
                               <Component id="titleLbl" alignment="0" max="32767" attributes="0"/>
-                              <Component id="titleTxt" alignment="0" max="32767" attributes="0"/>
+                              <Component id="NameTxt" alignment="0" max="32767" attributes="0"/>
                               <Group type="102" alignment="0" attributes="0">
                                   <Component id="dateLbl" max="32767" attributes="0"/>
                                   <EmptySpace min="161" pref="161" max="-2" attributes="0"/>
                               </Group>
-                              <Component id="dateTxt" alignment="0" max="32767" attributes="0"/>
-                              <Component id="edTxt" alignment="1" max="32767" attributes="0"/>
-                              <Group type="102" alignment="0" attributes="0">
-                                  <Component id="edLbl" max="32767" attributes="0"/>
-                                  <EmptySpace min="227" pref="227" max="-2" attributes="0"/>
-                              </Group>
+                              <Component id="DocumentTxt" alignment="0" max="32767" attributes="0"/>
                           </Group>
                           <EmptySpace min="-2" pref="30" max="-2" attributes="0"/>
                           <Component id="jSeparator1" min="-2" pref="10" max="-2" attributes="0"/>
@@ -90,12 +80,7 @@
                           <Group type="103" groupAlignment="0" attributes="0">
                               <Group type="102" attributes="0">
                                   <Group type="103" groupAlignment="0" attributes="0">
-                                      <Component id="langTxt" max="32767" attributes="0"/>
-                                      <Group type="102" alignment="0" attributes="0">
-                                          <Component id="langLbl" max="32767" attributes="0"/>
-                                          <EmptySpace min="228" pref="228" max="-2" attributes="0"/>
-                                      </Group>
-                                      <Component id="pagsTxt" alignment="0" max="32767" attributes="0"/>
+                                      <Component id="PhoneTxt" alignment="0" max="32767" attributes="0"/>
                                       <Group type="102" alignment="0" attributes="0">
                                           <Component id="pagsLbl" max="32767" attributes="0"/>
                                           <EmptySpace min="223" pref="223" max="-2" attributes="0"/>
@@ -104,12 +89,12 @@
                                           <Component id="descLbl" max="32767" attributes="0"/>
                                           <EmptySpace min="206" pref="206" max="-2" attributes="0"/>
                                       </Group>
-                                      <Component id="descTxt" alignment="0" max="32767" attributes="0"/>
+                                      <Component id="OccupationTxt" alignment="0" max="32767" attributes="0"/>
                                       <Group type="102" alignment="0" attributes="0">
                                           <Component id="ejemLbl" max="32767" attributes="0"/>
                                           <EmptySpace min="208" pref="208" max="-2" attributes="0"/>
                                       </Group>
-                                      <Component id="ejemTxt" alignment="0" max="32767" attributes="0"/>
+                                      <Component id="AddressTxt" alignment="0" max="32767" attributes="0"/>
                                   </Group>
                                   <EmptySpace min="-2" pref="72" max="-2" attributes="0"/>
                               </Group>
@@ -136,50 +121,41 @@
                   <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" attributes="0">
-                          <Component id="langLbl" min="-2" pref="31" max="-2" attributes="0"/>
                           <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
-                          <Component id="langTxt" min="-2" pref="30" max="-2" attributes="0"/>
-                          <EmptySpace max="-2" attributes="0"/>
                           <Component id="pagsLbl" min="-2" pref="30" max="-2" attributes="0"/>
                           <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
-                          <Component id="pagsTxt" min="-2" pref="30" max="-2" attributes="0"/>
-                          <EmptySpace max="-2" attributes="0"/>
+                          <Component id="PhoneTxt" min="-2" pref="30" max="-2" attributes="0"/>
+                          <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
                           <Component id="descLbl" min="-2" pref="30" max="-2" attributes="0"/>
                           <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
-                          <Component id="descTxt" min="-2" pref="30" max="-2" attributes="0"/>
-                          <EmptySpace type="separate" max="-2" attributes="0"/>
+                          <Component id="OccupationTxt" min="-2" pref="30" max="-2" attributes="0"/>
+                          <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
                           <Component id="ejemLbl" min="-2" pref="30" max="-2" attributes="0"/>
-                          <EmptySpace max="-2" attributes="0"/>
-                          <Component id="ejemTxt" min="-2" pref="30" max="-2" attributes="0"/>
+                          <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
+                          <Component id="AddressTxt" min="-2" pref="30" max="-2" attributes="0"/>
                           <EmptySpace min="-2" pref="43" max="-2" attributes="0"/>
                           <Component id="Button" min="-2" pref="47" max="-2" attributes="0"/>
-                          <EmptySpace pref="157" max="32767" attributes="0"/>
+                          <EmptySpace pref="276" max="32767" attributes="0"/>
                       </Group>
-                      <Component id="jSeparator1" max="32767" attributes="0"/>
                       <Group type="102" alignment="0" attributes="0">
                           <Component id="titleLbl" min="-2" pref="31" max="-2" attributes="0"/>
-                          <EmptySpace max="-2" attributes="0"/>
-                          <Component id="titleTxt" min="-2" pref="30" max="-2" attributes="0"/>
-                          <EmptySpace max="-2" attributes="0"/>
+                          <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
+                          <Component id="NameTxt" min="-2" pref="30" max="-2" attributes="0"/>
+                          <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
                           <Component id="dateLbl" min="-2" pref="30" max="-2" attributes="0"/>
                           <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
-                          <Component id="dateTxt" min="-2" pref="30" max="-2" attributes="0"/>
-                          <EmptySpace max="-2" attributes="0"/>
-                          <Component id="authorLbl" min="-2" pref="30" max="-2" attributes="0"/>
+                          <Component id="DocumentTxt" min="-2" pref="30" max="-2" attributes="0"/>
                           <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
-                          <Component id="authorTxt" min="-2" pref="30" max="-2" attributes="0"/>
-                          <EmptySpace min="-2" pref="11" max="-2" attributes="0"/>
                           <Component id="catLbl" min="-2" pref="30" max="-2" attributes="0"/>
                           <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
-                          <Component id="catTxt" min="-2" pref="30" max="-2" attributes="0"/>
-                          <EmptySpace max="-2" attributes="0"/>
-                          <Component id="edLbl" min="-2" pref="28" max="-2" attributes="0"/>
-                          <EmptySpace max="-2" attributes="0"/>
-                          <Component id="edTxt" min="-2" pref="30" max="-2" attributes="0"/>
+                          <Component id="EmaiTxt" min="-2" pref="30" max="-2" attributes="0"/>
                           <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                       </Group>
+                      <Group type="102" attributes="0">
+                          <Component id="jSeparator1" max="32767" attributes="0"/>
+                          <EmptySpace min="-2" pref="22" max="-2" attributes="0"/>
+                      </Group>
                   </Group>
-                  <EmptySpace min="-2" pref="22" max="-2" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -198,9 +174,9 @@
             <Property name="text" type="java.lang.String" value="Nombre Completo"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JTextField" name="titleTxt">
+        <Component class="javax.swing.JTextField" name="NameTxt">
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="titleTxtActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="NameTxtActionPerformed"/>
           </Events>
         </Component>
         <Component class="javax.swing.JLabel" name="dateLbl">
@@ -208,28 +184,14 @@
             <Property name="text" type="java.lang.String" value="Numero de documento"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JTextField" name="dateTxt">
-        </Component>
-        <Component class="javax.swing.JLabel" name="authorLbl">
-          <Properties>
-            <Property name="text" type="java.lang.String" value="Nacionalidad"/>
-          </Properties>
-        </Component>
-        <Component class="javax.swing.JTextField" name="authorTxt">
+        <Component class="javax.swing.JTextField" name="DocumentTxt">
         </Component>
         <Component class="javax.swing.JLabel" name="catLbl">
           <Properties>
             <Property name="text" type="java.lang.String" value="Correo Electr&#xf3;nico"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JTextField" name="catTxt">
-        </Component>
-        <Component class="javax.swing.JLabel" name="edLbl">
-          <Properties>
-            <Property name="text" type="java.lang.String" value="Numero de Contacto"/>
-          </Properties>
-        </Component>
-        <Component class="javax.swing.JTextField" name="edTxt">
+        <Component class="javax.swing.JTextField" name="EmaiTxt">
         </Component>
         <Component class="javax.swing.JSeparator" name="jSeparator1">
           <Properties>
@@ -242,32 +204,22 @@
             </Property>
           </Properties>
         </Component>
-        <Component class="javax.swing.JLabel" name="langLbl">
-          <Properties>
-            <Property name="text" type="java.lang.String" value="M&#xe9;todo de pago"/>
-          </Properties>
-        </Component>
-        <Component class="javax.swing.JTextField" name="langTxt">
-          <Properties>
-            <Property name="toolTipText" type="java.lang.String" value=""/>
-          </Properties>
-        </Component>
         <Component class="javax.swing.JLabel" name="pagsLbl">
           <Properties>
-            <Property name="text" type="java.lang.String" value="Tipo de persona"/>
+            <Property name="text" type="java.lang.String" value="Telefono"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JTextField" name="pagsTxt">
+        <Component class="javax.swing.JTextField" name="PhoneTxt">
           <Properties>
             <Property name="toolTipText" type="java.lang.String" value=""/>
           </Properties>
         </Component>
         <Component class="javax.swing.JLabel" name="descLbl">
           <Properties>
-            <Property name="text" type="java.lang.String" value="Fecha de Nacimiento"/>
+            <Property name="text" type="java.lang.String" value="Ocupaci&#xf3;n"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JTextField" name="descTxt">
+        <Component class="javax.swing.JTextField" name="OccupationTxt">
           <Properties>
             <Property name="toolTipText" type="java.lang.String" value=""/>
           </Properties>
@@ -277,7 +229,7 @@
             <Property name="text" type="java.lang.String" value="Direccion de Residencia"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JTextField" name="ejemTxt">
+        <Component class="javax.swing.JTextField" name="AddressTxt">
           <Properties>
             <Property name="toolTipText" type="java.lang.String" value=""/>
           </Properties>
