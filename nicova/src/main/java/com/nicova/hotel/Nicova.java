@@ -19,7 +19,7 @@ public class Nicova {
 
     public static void main(String[] args) {
         FlatMaterialOceanicIJTheme.setup();
-        DashBoard ventana = new DashBoard();
+        Login ventana = new Login();
         ventana.setVisible(true);
     }
 }
