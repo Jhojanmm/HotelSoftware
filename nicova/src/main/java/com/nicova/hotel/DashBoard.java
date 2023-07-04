@@ -38,18 +38,17 @@ public class DashBoard extends javax.swing.JFrame {
         SetDate();
         InitContent();
         inicializar();
-        
+
         //GoogleSheetsToCSV.main();
-        
         //csvToSheet.main();
     }
-    
-    private void inicializar() throws GeneralSecurityException{
+
+    private void inicializar() throws GeneralSecurityException {
         verificarYCrearArchivoCSV("C:\\Nicova\\clientes.csv", "1f2tjSzo8NbGoYk-ERMuGhaOrSD7x1FaQ4XJOBuBVCt8");
         verificarYCrearArchivoCSV("C:\\Nicova\\habitaciones.csv", "1qoVpY0OlMSxq8529Zvc755A3akkBcuCCNABnYaWSJLI");
-        
+
     }
-    
+
     public static void verificarYCrearArchivoCSV(String rutaArchivo, String id) throws GeneralSecurityException {
         File archivoCSV = new File(rutaArchivo);
 
@@ -58,7 +57,7 @@ public class DashBoard extends javax.swing.JFrame {
         } else {
             try {
                 if (archivoCSV.createNewFile()) {
-                    GoogleSheetsToCSV.main(rutaArchivo,id);
+                    GoogleSheetsToCSV.main(rutaArchivo, id);
                     System.out.println("El archivo clientes.csv ha sido creado correctamente.");
                 } else {
                     System.out.println("No se pudo crear el archivo clientes.csv.");
@@ -71,26 +70,24 @@ public class DashBoard extends javax.swing.JFrame {
 
     private void InitContent() {
         Principal pl = new Principal();
-        pl.setSize(806,604);
-        pl.setLocation(0,0);
-        
+        pl.setSize(806, 604);
+        pl.setLocation(0, 0);
+
         Content.removeAll();
         Content.add(pl, BorderLayout.CENTER);
         Content.revalidate();
         Content.repaint();
     }
-    
-    private void showContent(JPanel p){
-        p.setSize(806,604);
-        p.setLocation(0,0);
-        
+
+    public void showContent(JPanel p) {
+        p.setSize(806, 604);
+        p.setLocation(0, 0);
+
         Content.removeAll();
         Content.add(p, BorderLayout.CENTER);
         Content.revalidate();
         Content.repaint();
     }
-    
-    
 
     private void SetDate() {
         LocalDate now = LocalDate.now();

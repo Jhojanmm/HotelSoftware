@@ -7,11 +7,23 @@ import java.util.List;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 
-public class UpBooks extends javax.swing.JPanel {
+public class EditaCliente extends javax.swing.JPanel {
 
-    public UpBooks() {
+    public EditaCliente() {
         initComponents();
         InitStyles();
+    }
+
+    private void InitStyles() {
+        lblAtras.putClientProperty("FlatLaf.styleClass", "h2");
+        title.putClientProperty("FlatLaf.styleClass", "h1");
+        NameTxt.putClientProperty("JTextField.placeholderText", "Ingrese el Nombre Completo.");
+        DocumentTxt.putClientProperty("JTextField.placeholderText", "Ingrese el Numero de documento.");
+        EmaiTxt.putClientProperty("JTextField.placeholderText", "Ingrese el Correo Electronico");
+        PhoneTxt.putClientProperty("JTextField.placeholderText", "Ingrese el Telefono.");
+        OccupationTxt.putClientProperty("JTextField.placeholderText", "Ingrese la Ocupación.");
+        AddressTxt.putClientProperty("JTextField.placeholderText", "Ingrese la Direccion de Domicilio.");
+
     }
     
     public void showContent(JPanel p) {
@@ -24,24 +36,11 @@ public class UpBooks extends javax.swing.JPanel {
         bg.repaint();
     }
 
-    private void InitStyles() {
-        title.putClientProperty("FlatLaf.styleClass", "h1");
-        NameTxt.putClientProperty("JTextField.placeholderText", "Ingrese el Nombre Completo.");
-        DocumentTxt.putClientProperty("JTextField.placeholderText", "Ingrese el Numero de documento.");
-        EmaiTxt.putClientProperty("JTextField.placeholderText", "Ingrese el Correo Electronico");
-        PhoneTxt.putClientProperty("JTextField.placeholderText", "Ingrese el Telefono.");
-        OccupationTxt.putClientProperty("JTextField.placeholderText", "Ingrese la Ocupación.");
-        AddressTxt.putClientProperty("JTextField.placeholderText", "Ingrese la Direccion de Domicilio.");
-
-    }
-
     private String[] Save() {
         String[] data = {NameTxt.getText(), DocumentTxt.getText(), EmaiTxt.getText(), PhoneTxt.getText(), OccupationTxt.getText(), AddressTxt.getText()};
 
         return data;
     }
-    
-    
 
     private void Clear() {
         NameTxt.setText("");
@@ -79,6 +78,7 @@ public class UpBooks extends javax.swing.JPanel {
         AddressTxt = new javax.swing.JTextField();
         Button = new javax.swing.JButton();
         jButton1 = new javax.swing.JButton();
+        lblAtras = new javax.swing.JLabel();
 
         setBackground(new java.awt.Color(40, 55, 62));
         setPreferredSize(new java.awt.Dimension(807, 604));
@@ -86,9 +86,9 @@ public class UpBooks extends javax.swing.JPanel {
         bg.setBackground(new java.awt.Color(40, 55, 62));
 
         title.setBackground(new java.awt.Color(255, 255, 255));
-        title.setText("Agregar Nuevo Cliente");
+        title.setText("Editar Cliente");
 
-        titleLbl.setText("Nombre Completo");
+        titleLbl.setText("Numero de documento");
 
         NameTxt.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -96,7 +96,7 @@ public class UpBooks extends javax.swing.JPanel {
             }
         });
 
-        dateLbl.setText("Numero de documento");
+        dateLbl.setText("Nombre completo");
 
         catLbl.setText("Correo Electrónico");
 
@@ -117,18 +117,19 @@ public class UpBooks extends javax.swing.JPanel {
         AddressTxt.setToolTipText("");
 
         Button.setForeground(new java.awt.Color(255, 51, 102));
-        Button.setText("AGREGAR CLIENTE");
+        Button.setText("GUARDAR CAMBIOS");
         Button.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 ButtonActionPerformed(evt);
             }
         });
 
-        jButton1.setText("Editar Cliente");
-        jButton1.setActionCommand("");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+        jButton1.setText("Revisar");
+
+        lblAtras.setText("< Atras");
+        lblAtras.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                lblAtrasMousePressed(evt);
             }
         });
 
@@ -140,57 +141,75 @@ public class UpBooks extends javax.swing.JPanel {
                 .addContainerGap()
                 .addGroup(bgLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(bgLayout.createSequentialGroup()
-                        .addComponent(title, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(lblAtras)
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(bgLayout.createSequentialGroup()
                         .addGroup(bgLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(EmaiTxt)
                             .addGroup(bgLayout.createSequentialGroup()
-                                .addComponent(catLbl, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addGap(213, 213, 213))
-                            .addComponent(titleLbl, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(NameTxt)
-                            .addGroup(bgLayout.createSequentialGroup()
-                                .addComponent(dateLbl, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addGap(161, 161, 161))
-                            .addComponent(DocumentTxt))
-                        .addGap(30, 30, 30)
-                        .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGroup(bgLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(bgLayout.createSequentialGroup()
-                                .addGap(40, 40, 40)
                                 .addGroup(bgLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addGroup(bgLayout.createSequentialGroup()
-                                        .addGroup(bgLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(PhoneTxt)
-                                            .addGroup(bgLayout.createSequentialGroup()
-                                                .addComponent(pagsLbl, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                                .addGap(223, 223, 223))
-                                            .addGroup(bgLayout.createSequentialGroup()
-                                                .addComponent(descLbl, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                                .addGap(206, 206, 206))
-                                            .addComponent(OccupationTxt)
-                                            .addGroup(bgLayout.createSequentialGroup()
-                                                .addComponent(ejemLbl, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                                .addGap(208, 208, 208))
-                                            .addComponent(AddressTxt))
-                                        .addGap(72, 72, 72))
+                                        .addComponent(catLbl, javax.swing.GroupLayout.DEFAULT_SIZE, 116, Short.MAX_VALUE)
+                                        .addGap(174, 174, 174))
+                                    .addComponent(titleLbl, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                     .addGroup(bgLayout.createSequentialGroup()
-                                        .addGap(42, 42, 42)
-                                        .addComponent(Button, javax.swing.GroupLayout.PREFERRED_SIZE, 262, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                                        .addComponent(dateLbl, javax.swing.GroupLayout.PREFERRED_SIZE, 155, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGap(0, 0, Short.MAX_VALUE)))
+                                .addGap(56, 56, 56))
+                            .addGroup(bgLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                .addGroup(bgLayout.createSequentialGroup()
+                                    .addComponent(DocumentTxt, javax.swing.GroupLayout.PREFERRED_SIZE, 217, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addGap(24, 24, 24)
+                                    .addComponent(jButton1))
+                                .addComponent(EmaiTxt, javax.swing.GroupLayout.PREFERRED_SIZE, 316, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(NameTxt, javax.swing.GroupLayout.PREFERRED_SIZE, 316, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(14, 14, 14)
+                        .addGroup(bgLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(bgLayout.createSequentialGroup()
-                                .addGap(159, 159, 159)
-                                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(0, 0, Short.MAX_VALUE))))))
+                                .addGroup(bgLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(PhoneTxt)
+                                    .addGroup(bgLayout.createSequentialGroup()
+                                        .addComponent(pagsLbl, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                        .addGap(223, 223, 223))
+                                    .addGroup(bgLayout.createSequentialGroup()
+                                        .addComponent(descLbl, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                        .addGap(206, 206, 206))
+                                    .addComponent(OccupationTxt)
+                                    .addGroup(bgLayout.createSequentialGroup()
+                                        .addComponent(ejemLbl, javax.swing.GroupLayout.DEFAULT_SIZE, 151, Short.MAX_VALUE)
+                                        .addGap(208, 208, 208))
+                                    .addComponent(AddressTxt))
+                                .addGap(66, 66, 66))
+                            .addGroup(bgLayout.createSequentialGroup()
+                                .addGap(42, 42, 42)
+                                .addComponent(Button, javax.swing.GroupLayout.PREFERRED_SIZE, 262, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(103, 103, 103))))
+                    .addComponent(title, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
         );
         bgLayout.setVerticalGroup(
             bgLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(bgLayout.createSequentialGroup()
-                .addContainerGap()
+                .addGap(12, 12, 12)
+                .addComponent(lblAtras)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(title, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, 0)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(bgLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(bgLayout.createSequentialGroup()
+                        .addComponent(titleLbl, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(bgLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(DocumentTxt, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jButton1))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(dateLbl, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 0, 0)
+                        .addComponent(NameTxt, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 0, 0)
+                        .addComponent(catLbl, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(EmaiTxt, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(341, 341, 341))
                     .addGroup(bgLayout.createSequentialGroup()
                         .addComponent(pagsLbl, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(0, 0, 0)
@@ -205,25 +224,8 @@ public class UpBooks extends javax.swing.JPanel {
                         .addComponent(AddressTxt, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(43, 43, 43)
                         .addComponent(Button, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addContainerGap(212, Short.MAX_VALUE))
-                    .addGroup(bgLayout.createSequentialGroup()
-                        .addComponent(titleLbl, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 0, 0)
-                        .addComponent(NameTxt, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 0, 0)
-                        .addComponent(dateLbl, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 0, 0)
-                        .addComponent(DocumentTxt, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 0, 0)
-                        .addComponent(catLbl, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 0, 0)
-                        .addComponent(EmaiTxt, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(0, 0, Short.MAX_VALUE))
-                    .addGroup(bgLayout.createSequentialGroup()
-                        .addComponent(jSeparator1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addGap(22, 22, 22))))
+                    .addComponent(jSeparator1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
@@ -231,8 +233,8 @@ public class UpBooks extends javax.swing.JPanel {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(0, 29, Short.MAX_VALUE)
-                .addComponent(bg, javax.swing.GroupLayout.PREFERRED_SIZE, 778, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addComponent(bg, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -253,9 +255,9 @@ public class UpBooks extends javax.swing.JPanel {
         // TODO add your handling code here:
     }//GEN-LAST:event_NameTxtActionPerformed
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        showContent(new EditaCliente());
-    }//GEN-LAST:event_jButton1ActionPerformed
+    private void lblAtrasMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblAtrasMousePressed
+        showContent(new UpBooks());
+    }//GEN-LAST:event_lblAtrasMousePressed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextField AddressTxt;
@@ -273,6 +275,7 @@ public class UpBooks extends javax.swing.JPanel {
     private javax.swing.JButton jButton1;
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JSeparator jSeparator2;
+    private javax.swing.JLabel lblAtras;
     private javax.swing.JLabel pagsLbl;
     private javax.swing.JLabel title;
     private javax.swing.JLabel titleLbl;
