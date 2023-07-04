@@ -2,8 +2,11 @@ package com.nicova.views;
 
 import java.awt.BorderLayout;
 import java.awt.Color;
+import java.security.GeneralSecurityException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 
@@ -246,7 +249,11 @@ public class EditaCliente extends javax.swing.JPanel {
 
     private void ButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonActionPerformed
         String[] data = Save();
-        com.nicova.controllers.AddClient.main(data);
+        try {
+            com.nicova.controllers.AddClient.main(data);
+        } catch (GeneralSecurityException ex) {
+            Logger.getLogger(EditaCliente.class.getName()).log(Level.SEVERE, null, ex);
+        }
         JOptionPane.showMessageDialog(null, "Cliente Agregado Correctamente", "Usuario Creado", JOptionPane.INFORMATION_MESSAGE);
         Clear();
     }//GEN-LAST:event_ButtonActionPerformed

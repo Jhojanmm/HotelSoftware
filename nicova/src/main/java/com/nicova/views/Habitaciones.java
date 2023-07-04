@@ -4,8 +4,8 @@
  */
 package com.nicova.views;
 
-import com.nicova.controllers.GetClient;
-import static com.nicova.controllers.GetClient.leerHabitaciones;
+import com.nicova.controllers.GetHabitaciones;
+import static com.nicova.controllers.GetHabitaciones.leerHabitaciones;
 import com.nicova.objetos.Habitacion;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -27,7 +27,7 @@ public class Habitaciones extends javax.swing.JPanel {
      */
     String csvFile = "C:\\Nicova\\habitaciones.csv";
     DefaultTableModel TBHabitacion = new DefaultTableModel();
-    List<Habitacion> listaHabitaciones = GetClient.leerHabitaciones(csvFile);
+    List<Habitacion> listaHabitaciones = GetHabitaciones.leerHabitaciones(csvFile);
 
     public Habitaciones() {
         initComponents();
@@ -120,6 +120,8 @@ public class Habitaciones extends javax.swing.JPanel {
         jScrollPane2.setViewportView(jtableHabitacion);
 
         txtDisnponibilidad.setFocusable(false);
+
+        txtHabitacion.setFocusable(false);
 
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setText("Habitación");

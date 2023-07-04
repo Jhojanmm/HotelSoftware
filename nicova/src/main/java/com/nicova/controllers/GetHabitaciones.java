@@ -11,7 +11,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
-public class GetClient {
+public class GetHabitaciones {
 
     public static void GetClient(String[] args) {
         String csvFile = "C:\\Nicova\\habitaciones.csv"; // Ruta del archivo CSV

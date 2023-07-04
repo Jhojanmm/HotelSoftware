@@ -5,6 +5,7 @@
 package com.nicova.hotel;
 
 import com.formdev.flatlaf.FlatLightLaf;
+import com.nicova.connetion.checkConnetion;
 import com.nicova.views.Clientes;
 import com.nicova.views.Ganancias;
 import com.nicova.views.Habitaciones;
@@ -21,6 +22,7 @@ import java.time.format.DateTimeFormatter;
 import java.util.Locale;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 
 /**
@@ -37,10 +39,12 @@ public class DashBoard extends javax.swing.JFrame {
         InitStyles();
         SetDate();
         InitContent();
-        inicializar();
-
-        //GoogleSheetsToCSV.main();
-        //csvToSheet.main();
+        
+        if (checkConnetion.isConnected()) {
+            inicializar();
+        }else{
+            JOptionPane.showMessageDialog(null, "Puede que los datos no esten actualizados, por favor conectate a internet", "No hay conexión", JOptionPane.WARNING_MESSAGE);
+        }
     }
 
     private void inicializar() throws GeneralSecurityException {
