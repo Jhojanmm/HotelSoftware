@@ -15,14 +15,13 @@ import java.util.List;
 
 public class GoogleSheetsToCSV {
 
-    private static final String SPREADSHEET_ID = "1f2tjSzo8NbGoYk-ERMuGhaOrSD7x1FaQ4XJOBuBVCt8";
-    private static final String OUTPUT_FILE_PATH = "C:\\Nicova\\clientes.csv";
+    
 
-    public static void main() throws GeneralSecurityException {
+    public static void main(String OUTPUT_FILE_PATH,String SPREADSHEET_ID) throws GeneralSecurityException {
         try {
             Sheets sheetsService = GoogleSheetsService.getSheetsService(); // Obtener el servicio de Google Sheets
 
-            List<List<Object>> values = readSheetData(sheetsService, "Sheet1"); // Leer los datos de la hoja "Sheet1"
+            List<List<Object>> values = readSheetData(sheetsService, "Sheet1", SPREADSHEET_ID); // Leer los datos de la hoja "Sheet1"
 
             if (values != null) {
                 writeCSV(values, OUTPUT_FILE_PATH); // Escribir los datos en un archivo CSV
@@ -35,7 +34,7 @@ public class GoogleSheetsToCSV {
         }
     }
 
-    private static List<List<Object>> readSheetData(Sheets service, String sheetName) throws IOException {
+    private static List<List<Object>> readSheetData(Sheets service, String sheetName,String SPREADSHEET_ID) throws IOException {
         String range = sheetName + "!A1:ZZ"; // Rango de celdas a leer (todas las columnas desde A hasta ZZ)
         ValueRange response = service.spreadsheets().values().get(SPREADSHEET_ID, range).execute();
         List<List<Object>> values = response.getValues();

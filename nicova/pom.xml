@@ -5,6 +5,26 @@
     <artifactId>nicova</artifactId>
     <version>1.0-SNAPSHOT</version>
     <packaging>jar</packaging>
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-maven-plugin</artifactId>
+                <configuration>
+                    <mainClass>com.nicova.hotel.Nicova</mainClass>
+                    <layout>JAR</layout>
+                </configuration>
+                <executions>
+                    <execution>
+                        <goals>
+                            <goal>repackage</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+        </plugins>
+    </build> 
+    
     <repositories>
         <repository>
             <id>unknown-jars-temp-repo</id>
@@ -17,6 +37,7 @@
         <maven.compiler.source>19</maven.compiler.source>
         <maven.compiler.target>19</maven.compiler.target>
         <exec.mainClass>com.nicova.hotel.Nicova</exec.mainClass>
+        <start-class>com.nicova.hotel.Nicova</start-class>
     </properties>
     <dependencies>
         <dependency>

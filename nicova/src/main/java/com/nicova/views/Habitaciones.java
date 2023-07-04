@@ -4,9 +4,17 @@
  */
 package com.nicova.views;
 
+import com.nicova.controllers.GetClient;
+import static com.nicova.controllers.GetClient.leerHabitaciones;
+import com.nicova.objetos.Habitacion;
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import javax.swing.JLabel;
+import javax.swing.ListSelectionModel;
+import javax.swing.event.ListSelectionEvent;
+import javax.swing.event.ListSelectionListener;
+import javax.swing.table.DefaultTableModel;
 
 /**
  *
@@ -17,15 +25,64 @@ public class Habitaciones extends javax.swing.JPanel {
     /**
      * Creates new form Habitaciones
      */
+    String csvFile = "C:\\Nicova\\habitaciones.csv";
+    DefaultTableModel TBHabitacion = new DefaultTableModel();
+    List<Habitacion> listaHabitaciones = GetClient.leerHabitaciones(csvFile);
+
     public Habitaciones() {
         initComponents();
         InitStyles();
+        setModelo();
+        jtableHabitacion.getSelectionModel().addListSelectionListener(new ListSelectionListener() {
+            @Override
+            public void valueChanged(ListSelectionEvent e) {
+                int selectedRow = jtableHabitacion.getSelectedRow();
+                int selectedColumn = jtableHabitacion.getSelectedColumn();
+
+                // Capturar el dato seleccionado
+                Object selectHabitacion = jtableHabitacion.getValueAt(selectedRow, 1);
+                Object selectDisponibilidad = jtableHabitacion.getValueAt(selectedRow, 3);
+
+                // Imprimir el dato seleccionado
+                txtHabitacion.setText(selectHabitacion.toString());
+                txtDisnponibilidad.setText(selectDisponibilidad.toString());
+
+            }
+        });
+    }
+
+    private void setModelo() {
+        String[] cabeceras = {"#", "Habitación", "Precio", "Disponibilidad"};
+        TBHabitacion.setColumnIdentifiers(cabeceras);
+        jtableHabitacion.setModel(TBHabitacion);
+        setDatos();
+    }
+
+    private void setDatos() {
+        Object[] datos = new Object[TBHabitacion.getColumnCount()];
+        int i = 0;
+        for (Habitacion habitacion : listaHabitaciones) {
+            if (i != 0) {
+                datos[0] = i;
+                datos[1] = habitacion.getId();
+                datos[2] = habitacion.getPrecio();
+                if (habitacion.isDisponible() == true) {
+                    datos[3] = "Disponible";
+                } else {
+                    datos[3] = "Ocupada";
+                }
+                i++;
+                TBHabitacion.addRow(datos);
+            } else {
+                i++;
+            }
+
+        }
     }
 
     private void InitStyles() {
+
     }
-
-
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -38,11 +95,16 @@ public class Habitaciones extends javax.swing.JPanel {
 
         jPanel1 = new javax.swing.JPanel();
         jScrollPane2 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
+        jtableHabitacion = new javax.swing.JTable();
+        txtDisnponibilidad = new javax.swing.JTextField();
+        txtHabitacion = new javax.swing.JTextField();
+        jLabel1 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
+        jButton1 = new javax.swing.JButton();
 
-        jPanel1.setBackground(new java.awt.Color(255, 51, 51));
+        jPanel1.setBackground(new java.awt.Color(40, 55, 62));
 
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        jtableHabitacion.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
                 {null, null, null, null},
@@ -53,22 +115,64 @@ public class Habitaciones extends javax.swing.JPanel {
                 "Habitacion", "camas", "almohadas", "precio"
             }
         ));
-        jScrollPane2.setViewportView(jTable1);
+        jtableHabitacion.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        jtableHabitacion.setFocusable(false);
+        jScrollPane2.setViewportView(jtableHabitacion);
+
+        txtDisnponibilidad.setFocusable(false);
+
+        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel1.setText("Habitación");
+
+        jLabel2.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel2.setText("Disponibilidad");
+
+        jButton1.setText("Inspeccionar");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 698, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 109, Short.MAX_VALUE))
+                .addGap(51, 51, 51)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 698, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(txtHabitacion, javax.swing.GroupLayout.PREFERRED_SIZE, 203, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel1))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addComponent(jLabel2)
+                                .addGap(160, 160, 160))
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addComponent(txtDisnponibilidad, javax.swing.GroupLayout.PREFERRED_SIZE, 203, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(jButton1)
+                                .addGap(10, 10, 10)))))
+                .addContainerGap(58, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(70, 70, 70)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addContainerGap(27, Short.MAX_VALUE)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel1)
+                    .addComponent(jLabel2))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(txtDisnponibilidad, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtHabitacion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jButton1))
+                .addGap(29, 29, 29)
                 .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(224, Short.MAX_VALUE))
+                .addGap(17, 17, 17))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
@@ -87,10 +191,19 @@ public class Habitaciones extends javax.swing.JPanel {
         );
     }// </editor-fold>//GEN-END:initComponents
 
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton1ActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton jButton1;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane2;
-    private javax.swing.JTable jTable1;
+    private javax.swing.JTable jtableHabitacion;
+    private javax.swing.JTextField txtDisnponibilidad;
+    private javax.swing.JTextField txtHabitacion;
     // End of variables declaration//GEN-END:variables
 }

@@ -37,15 +37,20 @@ public class DashBoard extends javax.swing.JFrame {
         InitStyles();
         SetDate();
         InitContent();
+        inicializar();
         
-        String rutaArchivo = "C:\\Nicova\\clientes.csv";
-        verificarYCrearArchivoCSV(rutaArchivo);
         //GoogleSheetsToCSV.main();
         
         //csvToSheet.main();
     }
     
-    public static void verificarYCrearArchivoCSV(String rutaArchivo) throws GeneralSecurityException {
+    private void inicializar() throws GeneralSecurityException{
+        verificarYCrearArchivoCSV("C:\\Nicova\\clientes.csv", "1f2tjSzo8NbGoYk-ERMuGhaOrSD7x1FaQ4XJOBuBVCt8");
+        verificarYCrearArchivoCSV("C:\\Nicova\\habitaciones.csv", "1qoVpY0OlMSxq8529Zvc755A3akkBcuCCNABnYaWSJLI");
+        
+    }
+    
+    public static void verificarYCrearArchivoCSV(String rutaArchivo, String id) throws GeneralSecurityException {
         File archivoCSV = new File(rutaArchivo);
 
         if (archivoCSV.exists()) {
@@ -53,7 +58,7 @@ public class DashBoard extends javax.swing.JFrame {
         } else {
             try {
                 if (archivoCSV.createNewFile()) {
-                    GoogleSheetsToCSV.main();
+                    GoogleSheetsToCSV.main(rutaArchivo,id);
                     System.out.println("El archivo clientes.csv ha sido creado correctamente.");
                 } else {
                     System.out.println("No se pudo crear el archivo clientes.csv.");

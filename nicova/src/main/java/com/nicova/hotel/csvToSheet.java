@@ -17,7 +17,7 @@ import java.util.Arrays;
 import java.util.List;
 
 public class csvToSheet {
-    public static void main() {
+    public static void main(String spreadsheetId, String filePath) {
         try {
             // Set up credentials
             FileInputStream credentialsFile = new FileInputStream("C:\\Nicova\\nicovaDB.json");
@@ -25,7 +25,6 @@ public class csvToSheet {
                     .createScoped(Arrays.asList(SheetsScopes.SPREADSHEETS, SheetsScopes.DRIVE));
 
             // Specify the spreadsheet ID
-            String spreadsheetId = "1f2tjSzo8NbGoYk-ERMuGhaOrSD7x1FaQ4XJOBuBVCt8";
 
             // Create a blank spreadsheet
             Sheets service = new Sheets.Builder(credential.getTransport(), credential.getJsonFactory(), credential)
@@ -38,7 +37,7 @@ public class csvToSheet {
             requestBody.setRange(sheetName);
 
             // Read CSV with Apache Commons CSV
-            CSVParser csvParser = new CSVParser(new FileReader("C:\\Nicova\\clientes.csv"), CSVFormat.DEFAULT);
+            CSVParser csvParser = new CSVParser(new FileReader(filePath), CSVFormat.DEFAULT);
             List<CSVRecord> records = csvParser.getRecords();
 
             // Convert CSV data to a 2D array
