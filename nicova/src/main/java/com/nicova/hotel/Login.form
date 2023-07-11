@@ -51,7 +51,7 @@
         <Component class="javax.swing.JLabel" name="logo">
           <Properties>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="2" name="C:\Users\cesar\Desktop\nicova\HotelSoftware\nicova\src\main\java\com\nicova\imagenes\LOGO NICOVA DORADO 321x250.png"/>
+              <Image iconType="3" name="/com/nicova/imagenes/LOGO NICOVA DORADO 321x250.png"/>
             </Property>
           </Properties>
           <Constraints>

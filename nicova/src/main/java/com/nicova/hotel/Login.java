@@ -7,6 +7,10 @@ package com.nicova.hotel;
 import java.security.GeneralSecurityException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import java.awt.Dimension;
+import java.awt.Toolkit;
+import javax.swing.JFrame;
+
 
 /**
  *
@@ -50,7 +54,7 @@ public class Login extends javax.swing.JFrame {
         bg.setBackground(new java.awt.Color(38, 50, 56));
         bg.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        logo.setIcon(new javax.swing.ImageIcon("C:\\Users\\cesar\\Desktop\\nicova\\HotelSoftware\\nicova\\src\\main\\java\\com\\nicova\\imagenes\\LOGO NICOVA DORADO 321x250.png")); // NOI18N
+        logo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/nicova/imagenes/LOGO NICOVA DORADO 321x250.png"))); // NOI18N
         bg.add(logo, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 110, 321, 250));
 
         iniciarSesion.setFont(new java.awt.Font("Roboto Black", 1, 26)); // NOI18N
@@ -173,8 +177,16 @@ public class Login extends javax.swing.JFrame {
     private void loginBtnTxtMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_loginBtnTxtMouseClicked
         DashBoard ventana;
         try {
+            
             ventana = new DashBoard();
-             ventana.setVisible(true);
+            ventana.setExtendedState(JFrame.MAXIMIZED_BOTH);
+            
+            Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
+            int screenWidth = screenSize.width;
+            int screenHeight = screenSize.height;
+        
+            ventana.setLocation(0, 0);
+            ventana.setVisible(true);
             dispose();
         } catch (GeneralSecurityException ex) {
             Logger.getLogger(Login.class.getName()).log(Level.SEVERE, null, ex);

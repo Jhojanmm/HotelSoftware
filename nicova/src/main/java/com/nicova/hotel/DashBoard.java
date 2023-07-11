@@ -24,6 +24,8 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
+import javax.swing.*;
+import java.awt.*;
 
 /**
  *
@@ -83,15 +85,20 @@ public class DashBoard extends javax.swing.JFrame {
         Content.repaint();
     }
 
-    public void showContent(JPanel p) {
-        p.setSize(806, 604);
-        p.setLocation(0, 0);
-
-        Content.removeAll();
-        Content.add(p, BorderLayout.CENTER);
-        Content.revalidate();
-        Content.repaint();
-    }
+public void showContent(JPanel p) {
+    // Configurar el tamaño del Content al tamaño de la pantalla
+    Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
+    Content.setSize(screenSize.width, screenSize.height);
+    
+    // Establecer el layout del Content
+    Content.setLayout(new BorderLayout());
+    
+    // Establecer el JPanel en la región central
+    Content.removeAll();
+    Content.add(p, BorderLayout.CENTER);
+    Content.revalidate();
+    Content.repaint();
+}
 
     private void SetDate() {
         LocalDate now = LocalDate.now();
@@ -136,8 +143,10 @@ public class DashBoard extends javax.swing.JFrame {
         jLabel5 = new javax.swing.JLabel();
         lblDate = new javax.swing.JLabel();
         Content = new javax.swing.JPanel();
+        jPanel1 = new javax.swing.JPanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setResizable(false);
 
         background.setPreferredSize(new java.awt.Dimension(1180, 850));
 
@@ -329,15 +338,26 @@ public class DashBoard extends javax.swing.JFrame {
 
         Content.setBackground(new java.awt.Color(255, 255, 255));
 
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 0, Short.MAX_VALUE)
+        );
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 0, Short.MAX_VALUE)
+        );
+
         javax.swing.GroupLayout ContentLayout = new javax.swing.GroupLayout(Content);
         Content.setLayout(ContentLayout);
         ContentLayout.setHorizontalGroup(
             ContentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 0, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         ContentLayout.setVerticalGroup(
             ContentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 0, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         javax.swing.GroupLayout backgroundLayout = new javax.swing.GroupLayout(background);
@@ -452,6 +472,7 @@ public class DashBoard extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
+    private javax.swing.JPanel jPanel1;
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JButton lblCliente;
     private javax.swing.JLabel lblDate;
