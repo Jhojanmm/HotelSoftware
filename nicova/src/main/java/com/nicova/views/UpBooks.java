@@ -20,9 +20,6 @@ public class UpBooks extends javax.swing.JPanel {
     }
 
     public void showContent(JPanel p) {
-        bg.removeAll();
-        bg.revalidate();
-        bg.repaint();
         // Configurar el tamaño del Content al tamaño de la pantalla
         Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
         bg.setSize(screenSize.width, screenSize.height);
@@ -31,7 +28,7 @@ public class UpBooks extends javax.swing.JPanel {
         bg.setLayout(new BorderLayout());
 
         // Establecer el JPanel en la región central
-        
+        bg.removeAll();
         bg.add(p, BorderLayout.CENTER);
         bg.revalidate();
         bg.repaint();
@@ -276,7 +273,7 @@ public class UpBooks extends javax.swing.JPanel {
     }//GEN-LAST:event_NameTxtActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        showContent(new EditaCliente());
+        showContent(new ListarClientes());
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void DocumentTxtActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_DocumentTxtActionPerformed
