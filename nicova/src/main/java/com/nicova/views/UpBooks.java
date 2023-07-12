@@ -101,6 +101,12 @@ public class UpBooks extends javax.swing.JPanel {
 
         dateLbl.setText("Numero de documento");
 
+        DocumentTxt.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                DocumentTxtActionPerformed(evt);
+            }
+        });
+
         catLbl.setText("Correo Electrónico");
 
         jSeparator1.setForeground(new java.awt.Color(204, 204, 204));
@@ -149,7 +155,7 @@ public class UpBooks extends javax.swing.JPanel {
                         .addGroup(bgLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(EmaiTxt)
                             .addGroup(bgLayout.createSequentialGroup()
-                                .addComponent(catLbl, javax.swing.GroupLayout.DEFAULT_SIZE, 157, Short.MAX_VALUE)
+                                .addComponent(catLbl, javax.swing.GroupLayout.DEFAULT_SIZE, 152, Short.MAX_VALUE)
                                 .addGap(213, 213, 213))
                             .addComponent(titleLbl, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(NameTxt)
@@ -174,7 +180,7 @@ public class UpBooks extends javax.swing.JPanel {
                                                 .addGap(206, 206, 206))
                                             .addComponent(OccupationTxt)
                                             .addGroup(bgLayout.createSequentialGroup()
-                                                .addComponent(ejemLbl, javax.swing.GroupLayout.DEFAULT_SIZE, 184, Short.MAX_VALUE)
+                                                .addComponent(ejemLbl, javax.swing.GroupLayout.DEFAULT_SIZE, 179, Short.MAX_VALUE)
                                                 .addGap(208, 208, 208))
                                             .addComponent(AddressTxt))
                                         .addGap(72, 72, 72))
@@ -264,6 +270,10 @@ public class UpBooks extends javax.swing.JPanel {
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         showContent(new EditaCliente());
     }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void DocumentTxtActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_DocumentTxtActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_DocumentTxtActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextField AddressTxt;

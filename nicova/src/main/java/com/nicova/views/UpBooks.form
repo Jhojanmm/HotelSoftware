@@ -68,7 +68,7 @@
                           <Group type="103" groupAlignment="0" attributes="0">
                               <Component id="EmaiTxt" alignment="0" max="32767" attributes="0"/>
                               <Group type="102" alignment="0" attributes="0">
-                                  <Component id="catLbl" pref="157" max="32767" attributes="0"/>
+                                  <Component id="catLbl" pref="152" max="32767" attributes="0"/>
                                   <EmptySpace min="213" pref="213" max="-2" attributes="0"/>
                               </Group>
                               <Component id="titleLbl" alignment="0" max="32767" attributes="0"/>
@@ -98,7 +98,7 @@
                                               </Group>
                                               <Component id="OccupationTxt" alignment="0" max="32767" attributes="0"/>
                                               <Group type="102" alignment="0" attributes="0">
-                                                  <Component id="ejemLbl" pref="184" max="32767" attributes="0"/>
+                                                  <Component id="ejemLbl" pref="179" max="32767" attributes="0"/>
                                                   <EmptySpace min="208" pref="208" max="-2" attributes="0"/>
                                               </Group>
                                               <Component id="AddressTxt" alignment="0" max="32767" attributes="0"/>
@@ -196,6 +196,9 @@
           </Properties>
         </Component>
         <Component class="javax.swing.JTextField" name="DocumentTxt">
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="DocumentTxtActionPerformed"/>
+          </Events>
         </Component>
         <Component class="javax.swing.JLabel" name="catLbl">
           <Properties>
