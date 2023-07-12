@@ -34,7 +34,7 @@
     <DimensionLayout dim="0">
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" alignment="1" attributes="0">
-              <EmptySpace min="-2" pref="108" max="-2" attributes="0"/>
+              <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
               <Component id="bg" max="32767" attributes="0"/>
               <EmptySpace min="-2" max="-2" attributes="0"/>
           </Group>
@@ -58,7 +58,7 @@
         <DimensionLayout dim="0">
           <Group type="103" groupAlignment="0" attributes="0">
               <Group type="102" attributes="0">
-                  <EmptySpace min="-2" max="-2" attributes="0"/>
+                  <EmptySpace min="-2" pref="100" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" alignment="0" attributes="0">
                           <Component id="title" max="32767" attributes="0"/>
@@ -68,7 +68,7 @@
                           <Group type="103" groupAlignment="0" attributes="0">
                               <Component id="EmaiTxt" alignment="0" max="32767" attributes="0"/>
                               <Group type="102" alignment="0" attributes="0">
-                                  <Component id="catLbl" pref="152" max="32767" attributes="0"/>
+                                  <Component id="catLbl" max="32767" attributes="0"/>
                                   <EmptySpace min="213" pref="213" max="-2" attributes="0"/>
                               </Group>
                               <Component id="titleLbl" alignment="0" max="32767" attributes="0"/>
@@ -98,7 +98,7 @@
                                               </Group>
                                               <Component id="OccupationTxt" alignment="0" max="32767" attributes="0"/>
                                               <Group type="102" alignment="0" attributes="0">
-                                                  <Component id="ejemLbl" pref="179" max="32767" attributes="0"/>
+                                                  <Component id="ejemLbl" max="32767" attributes="0"/>
                                                   <EmptySpace min="208" pref="208" max="-2" attributes="0"/>
                                               </Group>
                                               <Component id="AddressTxt" alignment="0" max="32767" attributes="0"/>

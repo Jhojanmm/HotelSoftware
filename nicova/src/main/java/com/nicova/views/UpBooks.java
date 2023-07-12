@@ -2,6 +2,8 @@ package com.nicova.views;
 
 import java.awt.BorderLayout;
 import java.awt.Color;
+import java.awt.Dimension;
+import java.awt.Toolkit;
 import java.security.GeneralSecurityException;
 import java.util.ArrayList;
 import java.util.List;
@@ -16,12 +18,20 @@ public class UpBooks extends javax.swing.JPanel {
         initComponents();
         InitStyles();
     }
-    
-    public void showContent(JPanel p) {
-        p.setSize(806, 604);
-        p.setLocation(0, 0);
 
+    public void showContent(JPanel p) {
         bg.removeAll();
+        bg.revalidate();
+        bg.repaint();
+        // Configurar el tamaño del Content al tamaño de la pantalla
+        Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
+        bg.setSize(screenSize.width, screenSize.height);
+
+        // Establecer el layout del Content
+        bg.setLayout(new BorderLayout());
+
+        // Establecer el JPanel en la región central
+        
         bg.add(p, BorderLayout.CENTER);
         bg.revalidate();
         bg.repaint();
@@ -43,8 +53,6 @@ public class UpBooks extends javax.swing.JPanel {
 
         return data;
     }
-    
-    
 
     private void Clear() {
         NameTxt.setText("");
@@ -146,16 +154,16 @@ public class UpBooks extends javax.swing.JPanel {
         bgLayout.setHorizontalGroup(
             bgLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(bgLayout.createSequentialGroup()
-                .addContainerGap()
+                .addGap(100, 100, 100)
                 .addGroup(bgLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(bgLayout.createSequentialGroup()
                         .addComponent(title, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addContainerGap())
                     .addGroup(bgLayout.createSequentialGroup()
                         .addGroup(bgLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(EmaiTxt)
                             .addGroup(bgLayout.createSequentialGroup()
-                                .addComponent(catLbl, javax.swing.GroupLayout.DEFAULT_SIZE, 152, Short.MAX_VALUE)
+                                .addComponent(catLbl, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addGap(213, 213, 213))
                             .addComponent(titleLbl, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(NameTxt)
@@ -180,7 +188,7 @@ public class UpBooks extends javax.swing.JPanel {
                                                 .addGap(206, 206, 206))
                                             .addComponent(OccupationTxt)
                                             .addGroup(bgLayout.createSequentialGroup()
-                                                .addComponent(ejemLbl, javax.swing.GroupLayout.DEFAULT_SIZE, 179, Short.MAX_VALUE)
+                                                .addComponent(ejemLbl, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                                 .addGap(208, 208, 208))
                                             .addComponent(AddressTxt))
                                         .addGap(72, 72, 72))
@@ -240,7 +248,7 @@ public class UpBooks extends javax.swing.JPanel {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(108, 108, 108)
+                .addGap(0, 0, 0)
                 .addComponent(bg, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addContainerGap())
         );

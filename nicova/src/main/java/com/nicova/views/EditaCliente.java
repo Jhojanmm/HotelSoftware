@@ -2,6 +2,8 @@ package com.nicova.views;
 
 import java.awt.BorderLayout;
 import java.awt.Color;
+import java.awt.Dimension;
+import java.awt.Toolkit;
 import java.security.GeneralSecurityException;
 import java.util.ArrayList;
 import java.util.List;
@@ -30,13 +32,21 @@ public class EditaCliente extends javax.swing.JPanel {
     }
     
     public void showContent(JPanel p) {
-        p.setSize(806, 604);
-        p.setLocation(0, 0);
-
+        bg.setLayout(new BorderLayout());
         bg.removeAll();
         bg.add(p, BorderLayout.CENTER);
         bg.revalidate();
         bg.repaint();
+        
+        // Configurar el tamaño del Content al tamaño de la pantalla
+        Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
+        bg.setSize(screenSize.width, screenSize.height);
+
+        // Establecer el layout del Content
+        
+
+        // Establecer el JPanel en la región central
+        
     }
 
     private String[] Save() {
@@ -141,17 +151,17 @@ public class EditaCliente extends javax.swing.JPanel {
         bgLayout.setHorizontalGroup(
             bgLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(bgLayout.createSequentialGroup()
-                .addContainerGap()
+                .addGap(100, 100, 100)
                 .addGroup(bgLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(bgLayout.createSequentialGroup()
                         .addComponent(lblAtras)
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addContainerGap())
                     .addGroup(bgLayout.createSequentialGroup()
                         .addGroup(bgLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(bgLayout.createSequentialGroup()
                                 .addGroup(bgLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addGroup(bgLayout.createSequentialGroup()
-                                        .addComponent(catLbl, javax.swing.GroupLayout.DEFAULT_SIZE, 116, Short.MAX_VALUE)
+                                        .addComponent(catLbl, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                         .addGap(174, 174, 174))
                                     .addComponent(titleLbl, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                     .addGroup(bgLayout.createSequentialGroup()
@@ -179,7 +189,7 @@ public class EditaCliente extends javax.swing.JPanel {
                                         .addGap(206, 206, 206))
                                     .addComponent(OccupationTxt)
                                     .addGroup(bgLayout.createSequentialGroup()
-                                        .addComponent(ejemLbl, javax.swing.GroupLayout.DEFAULT_SIZE, 151, Short.MAX_VALUE)
+                                        .addComponent(ejemLbl, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                         .addGap(208, 208, 208))
                                     .addComponent(AddressTxt))
                                 .addGap(66, 66, 66))
