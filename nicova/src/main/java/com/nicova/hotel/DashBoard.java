@@ -7,6 +7,7 @@ package com.nicova.hotel;
 import com.formdev.flatlaf.FlatLightLaf;
 import com.nicova.connetion.checkConnetion;
 import com.nicova.views.Clientes;
+import com.nicova.views.CrearEmpleado;
 import com.nicova.views.Ganancias;
 import com.nicova.views.Habitaciones;
 import com.nicova.views.Inventario;
@@ -130,11 +131,12 @@ public void showContent(JPanel p) {
         lblReservas = new javax.swing.JButton();
         Principal = new javax.swing.JButton();
         lblReserva2 = new javax.swing.JButton();
-        lblReserva3 = new javax.swing.JButton();
         lblReserva4 = new javax.swing.JButton();
         lblNicova = new javax.swing.JLabel();
         lblCliente = new javax.swing.JButton();
         jSeparator1 = new javax.swing.JSeparator();
+        btnCrearEmpleado = new javax.swing.JButton();
+        lblReserva3 = new javax.swing.JButton();
         header = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
@@ -192,19 +194,6 @@ public void showContent(JPanel p) {
             }
         });
 
-        lblReserva3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/stats.png"))); // NOI18N
-        lblReserva3.setText("Ganancias");
-        lblReserva3.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 15, 1, 1, new java.awt.Color(0, 0, 0)));
-        lblReserva3.setBorderPainted(false);
-        lblReserva3.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        lblReserva3.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        lblReserva3.setIconTextGap(15);
-        lblReserva3.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                lblReserva3ActionPerformed(evt);
-            }
-        });
-
         lblReserva4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/home.png"))); // NOI18N
         lblReserva4.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 15, 1, 1, new java.awt.Color(0, 0, 0)));
         lblReserva4.setBorderPainted(false);
@@ -238,6 +227,32 @@ public void showContent(JPanel p) {
         jSeparator1.setForeground(new java.awt.Color(255, 255, 255));
         jSeparator1.setPreferredSize(new java.awt.Dimension(50, 30));
 
+        btnCrearEmpleado.setIcon(new javax.swing.ImageIcon(getClass().getResource("/group_694642 (4).png"))); // NOI18N
+        btnCrearEmpleado.setText("Crear Empleado");
+        btnCrearEmpleado.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 15, 1, 1, new java.awt.Color(0, 0, 0)));
+        btnCrearEmpleado.setBorderPainted(false);
+        btnCrearEmpleado.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnCrearEmpleado.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        btnCrearEmpleado.setIconTextGap(15);
+        btnCrearEmpleado.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnCrearEmpleadoActionPerformed(evt);
+            }
+        });
+
+        lblReserva3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/stats.png"))); // NOI18N
+        lblReserva3.setText("Ganancias");
+        lblReserva3.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 15, 1, 1, new java.awt.Color(0, 0, 0)));
+        lblReserva3.setBorderPainted(false);
+        lblReserva3.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        lblReserva3.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        lblReserva3.setIconTextGap(15);
+        lblReserva3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                lblReserva3ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout MenuLayout = new javax.swing.GroupLayout(Menu);
         Menu.setLayout(MenuLayout);
         MenuLayout.setHorizontalGroup(
@@ -246,11 +261,12 @@ public void showContent(JPanel p) {
             .addGroup(MenuLayout.createSequentialGroup()
                 .addGap(50, 50, 50)
                 .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE))
-            .addComponent(lblReservas, javax.swing.GroupLayout.PREFERRED_SIZE, 260, javax.swing.GroupLayout.PREFERRED_SIZE)
-            .addComponent(lblReserva4, javax.swing.GroupLayout.PREFERRED_SIZE, 260, javax.swing.GroupLayout.PREFERRED_SIZE)
-            .addComponent(Principal, javax.swing.GroupLayout.PREFERRED_SIZE, 260, javax.swing.GroupLayout.PREFERRED_SIZE)
-            .addComponent(lblCliente, javax.swing.GroupLayout.PREFERRED_SIZE, 260, javax.swing.GroupLayout.PREFERRED_SIZE)
             .addComponent(lblReserva2, javax.swing.GroupLayout.PREFERRED_SIZE, 260, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addComponent(lblCliente, javax.swing.GroupLayout.PREFERRED_SIZE, 260, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addComponent(lblReservas, javax.swing.GroupLayout.PREFERRED_SIZE, 260, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addComponent(Principal, javax.swing.GroupLayout.PREFERRED_SIZE, 260, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addComponent(lblReserva4, javax.swing.GroupLayout.PREFERRED_SIZE, 260, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addComponent(btnCrearEmpleado, javax.swing.GroupLayout.PREFERRED_SIZE, 260, javax.swing.GroupLayout.PREFERRED_SIZE)
             .addComponent(lblReserva3, javax.swing.GroupLayout.PREFERRED_SIZE, 260, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
         MenuLayout.setVerticalGroup(
@@ -263,18 +279,21 @@ public void showContent(JPanel p) {
                 .addGap(50, 50, 50)
                 .addGroup(MenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(MenuLayout.createSequentialGroup()
-                        .addGap(100, 100, 100)
-                        .addComponent(lblReservas, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(MenuLayout.createSequentialGroup()
-                        .addGap(200, 200, 200)
-                        .addComponent(lblReserva4, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(Principal, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(150, 150, 150)
+                        .addComponent(lblReserva2, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(MenuLayout.createSequentialGroup()
                         .addGap(50, 50, 50)
                         .addComponent(lblCliente, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(MenuLayout.createSequentialGroup()
-                        .addGap(150, 150, 150)
-                        .addComponent(lblReserva2, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(100, 100, 100)
+                        .addComponent(lblReservas, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(Principal, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(MenuLayout.createSequentialGroup()
+                        .addGap(200, 200, 200)
+                        .addComponent(lblReserva4, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(MenuLayout.createSequentialGroup()
+                        .addGap(300, 300, 300)
+                        .addComponent(btnCrearEmpleado, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(MenuLayout.createSequentialGroup()
                         .addGap(250, 250, 250)
                         .addComponent(lblReserva3, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE))))
@@ -342,7 +361,7 @@ public void showContent(JPanel p) {
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 0, Short.MAX_VALUE)
+            .addGap(0, 810, Short.MAX_VALUE)
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -425,6 +444,10 @@ public void showContent(JPanel p) {
         showContent(new UpBooks());
     }//GEN-LAST:event_lblClienteActionPerformed
 
+    private void btnCrearEmpleadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCrearEmpleadoActionPerformed
+        showContent(new CrearEmpleado());
+    }//GEN-LAST:event_btnCrearEmpleadoActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -466,6 +489,7 @@ public void showContent(JPanel p) {
     private javax.swing.JPanel Menu;
     private javax.swing.JButton Principal;
     private javax.swing.JPanel background;
+    private javax.swing.JButton btnCrearEmpleado;
     private javax.swing.JPanel header;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;

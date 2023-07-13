@@ -12,16 +12,34 @@ public class Cliente {
     private String documento;
     private String nombre;
     private String correo;
+    private String telefono;
+    private String ocupacion;
+    private String direccion;
 
-    public Cliente(String id, String nombre, String correo) {
+    public Cliente(String id, String nombre, String correo, String ocupacion, String telefono, String direccion) {
         this.documento = id;
         this.nombre = nombre;
         this.correo = correo;
+        this.ocupacion = ocupacion;
+        this.telefono = telefono;
+        this.direccion = direccion;
     }
 
     // Getters y Setters
     public String getDocumento() {
         return documento;
+    }
+    
+    public String getOcupacion() {
+        return ocupacion;
+    }
+    
+    public String getTelefono() {
+        return telefono;
+    }
+    
+    public String getdireccion() {
+        return direccion;
     }
 
     public void setdocumeto(String id) {
@@ -34,6 +52,18 @@ public class Cliente {
 
     public void setNombre(String nombre) {
         this.nombre = nombre;
+    }
+    
+    public void setTelefono(String telefono) {
+        this.telefono = telefono;
+    }
+    
+    public void setDireccion(String direccion) {
+        this.direccion = direccion;
+    }
+    
+    public void setOcupacion(String ocupacion) {
+        this.ocupacion = ocupacion;
     }
 
     public String GetCorreo() {

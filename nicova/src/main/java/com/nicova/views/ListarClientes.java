@@ -50,7 +50,7 @@ public class ListarClientes extends javax.swing.JPanel {
                 Object selectDisponibilidad = jtableCliente.getValueAt(selectedRow, 2);
 
                 // Imprimir el dato seleccionado
-                txtHabitacion.setText(selectHabitacion.toString());
+                txtId.setText(selectHabitacion.toString());
                 txtDisnponibilidad.setText(selectDisponibilidad.toString());
 
             }
@@ -96,6 +96,23 @@ public class ListarClientes extends javax.swing.JPanel {
         jPanel1.revalidate();
         jPanel1.repaint();
     }
+    
+    public void sendPanelInfo(){
+        EditaCliente cliente = new EditaCliente();
+        cliente.setCliente(txtId.getText());
+        Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
+        jPanel1.setSize(screenSize.width, screenSize.height);
+
+        // Establecer el layout del Content
+        jPanel1.setLayout(new BorderLayout());
+
+        // Establecer el JPanel en la región central
+        jPanel1.removeAll();
+        jPanel1.add(cliente, BorderLayout.CENTER);
+        jPanel1.revalidate();
+        jPanel1.repaint();
+        
+    }
 
 
     private void InitStyles() {
@@ -115,7 +132,7 @@ public class ListarClientes extends javax.swing.JPanel {
         jScrollPane2 = new javax.swing.JScrollPane();
         jtableCliente = new javax.swing.JTable();
         txtDisnponibilidad = new javax.swing.JTextField();
-        txtHabitacion = new javax.swing.JTextField();
+        txtId = new javax.swing.JTextField();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jButton1 = new javax.swing.JButton();
@@ -139,7 +156,7 @@ public class ListarClientes extends javax.swing.JPanel {
 
         txtDisnponibilidad.setFocusable(false);
 
-        txtHabitacion.setFocusable(false);
+        txtId.setFocusable(false);
 
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setText("Documento");
@@ -164,7 +181,7 @@ public class ListarClientes extends javax.swing.JPanel {
                     .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 698, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(txtHabitacion, javax.swing.GroupLayout.PREFERRED_SIZE, 203, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(txtId, javax.swing.GroupLayout.PREFERRED_SIZE, 203, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel1))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -188,7 +205,7 @@ public class ListarClientes extends javax.swing.JPanel {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(txtDisnponibilidad, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txtHabitacion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtId, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jButton1))
                 .addGap(29, 29, 29)
                 .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -214,7 +231,7 @@ public class ListarClientes extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        showContent(new EditaCliente());
+        sendPanelInfo();
     }//GEN-LAST:event_jButton1ActionPerformed
 
 
@@ -226,6 +243,6 @@ public class ListarClientes extends javax.swing.JPanel {
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JTable jtableCliente;
     private javax.swing.JTextField txtDisnponibilidad;
-    private javax.swing.JTextField txtHabitacion;
+    private javax.swing.JTextField txtId;
     // End of variables declaration//GEN-END:variables
 }

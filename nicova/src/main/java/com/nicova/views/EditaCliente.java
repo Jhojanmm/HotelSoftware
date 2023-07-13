@@ -1,5 +1,7 @@
 package com.nicova.views;
 
+import com.nicova.controllers.GetClientes;
+import com.nicova.objetos.Cliente;
 import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Dimension;
@@ -13,10 +15,34 @@ import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 
 public class EditaCliente extends javax.swing.JPanel {
-
+    
+    
+    String csvFile = "C:\\Nicova\\clientes.csv";
+    List<Cliente> listaCliente = GetClientes.leerClientes(csvFile);
+    private String id;
+    
+    
     public EditaCliente() {
         initComponents();
         InitStyles();
+        
+    }
+    
+    public void setCliente(String id){
+        
+        System.out.println(id);
+        this.id = id;
+        for (Cliente cliente : listaCliente) {
+            if (cliente.getDocumento().equals(id)) {
+                NameTxt.setText(cliente.getNombre());
+                DocumentTxt.setText(cliente.getDocumento());
+                EmaiTxt.setText(cliente.GetCorreo());
+                PhoneTxt.setText(cliente.getTelefono());
+                OccupationTxt.setText(cliente.getOcupacion());
+                AddressTxt.setText(cliente.getdireccion());
+            }
+        }
+        
     }
 
     private void InitStyles() {
@@ -90,7 +116,6 @@ public class EditaCliente extends javax.swing.JPanel {
         ejemLbl = new javax.swing.JLabel();
         AddressTxt = new javax.swing.JTextField();
         Button = new javax.swing.JButton();
-        jButton1 = new javax.swing.JButton();
         lblAtras = new javax.swing.JLabel();
 
         setBackground(new java.awt.Color(40, 55, 62));
@@ -137,8 +162,6 @@ public class EditaCliente extends javax.swing.JPanel {
             }
         });
 
-        jButton1.setText("Revisar");
-
         lblAtras.setText("< Atras");
         lblAtras.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mousePressed(java.awt.event.MouseEvent evt) {
@@ -169,12 +192,9 @@ public class EditaCliente extends javax.swing.JPanel {
                                         .addGap(0, 0, Short.MAX_VALUE)))
                                 .addGap(56, 56, 56))
                             .addGroup(bgLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                .addGroup(bgLayout.createSequentialGroup()
-                                    .addComponent(DocumentTxt, javax.swing.GroupLayout.PREFERRED_SIZE, 217, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addGap(24, 24, 24)
-                                    .addComponent(jButton1))
                                 .addComponent(EmaiTxt, javax.swing.GroupLayout.PREFERRED_SIZE, 316, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(NameTxt, javax.swing.GroupLayout.PREFERRED_SIZE, 316, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addComponent(NameTxt, javax.swing.GroupLayout.PREFERRED_SIZE, 316, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(DocumentTxt, javax.swing.GroupLayout.PREFERRED_SIZE, 313, javax.swing.GroupLayout.PREFERRED_SIZE)))
                         .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(14, 14, 14)
                         .addGroup(bgLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -211,9 +231,7 @@ public class EditaCliente extends javax.swing.JPanel {
                     .addGroup(bgLayout.createSequentialGroup()
                         .addComponent(titleLbl, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(bgLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(DocumentTxt, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jButton1))
+                        .addComponent(DocumentTxt, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(dateLbl, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(0, 0, 0)
@@ -259,12 +277,9 @@ public class EditaCliente extends javax.swing.JPanel {
 
     private void ButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonActionPerformed
         String[] data = Save();
-        try {
-            com.nicova.controllers.AddClient.main(data);
-        } catch (GeneralSecurityException ex) {
-            Logger.getLogger(EditaCliente.class.getName()).log(Level.SEVERE, null, ex);
-        }
-        JOptionPane.showMessageDialog(null, "Cliente Agregado Correctamente", "Usuario Creado", JOptionPane.INFORMATION_MESSAGE);
+        com.nicova.controllers.GetClientes.actualizarCliente(csvFile, NameTxt.getText(), DocumentTxt.getText(), EmaiTxt.getText(), PhoneTxt.getText(), OccupationTxt.getText(), AddressTxt.getText());
+        com.nicova.hotel.csvToSheet.main("1f2tjSzo8NbGoYk-ERMuGhaOrSD7x1FaQ4XJOBuBVCt8", "C:\\Nicova\\clientes.csv");
+        JOptionPane.showMessageDialog(null, "Cliente Actualizado Correctamente", "Usuario Actualizado", JOptionPane.INFORMATION_MESSAGE);
         Clear();
     }//GEN-LAST:event_ButtonActionPerformed
 
@@ -289,7 +304,6 @@ public class EditaCliente extends javax.swing.JPanel {
     private javax.swing.JLabel dateLbl;
     private javax.swing.JLabel descLbl;
     private javax.swing.JLabel ejemLbl;
-    private javax.swing.JButton jButton1;
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JSeparator jSeparator2;
     private javax.swing.JLabel lblAtras;
