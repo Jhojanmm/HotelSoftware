@@ -6,6 +6,7 @@ package com.nicova.hotel;
 
 import com.formdev.flatlaf.FlatLightLaf;
 import com.nicova.connetion.checkConnetion;
+import com.nicova.objetos.Usuario;
 import com.nicova.views.Clientes;
 import com.nicova.views.CrearEmpleado;
 import com.nicova.views.Ganancias;
@@ -34,9 +35,7 @@ import java.awt.*;
  */
 public class DashBoard extends javax.swing.JFrame {
 
-    /**
-     * Creates new form DashBoard
-     */
+    Usuario user;
     public DashBoard() throws GeneralSecurityException {
         initComponents();
         InitStyles();
@@ -48,6 +47,10 @@ public class DashBoard extends javax.swing.JFrame {
         }else{
             JOptionPane.showMessageDialog(null, "Puede que los datos no esten actualizados, por favor conectate a internet", "No hay conexión", JOptionPane.WARNING_MESSAGE);
         }
+    }
+    
+    public void setUser(Usuario user){
+        lblUser.setText(user.getNombre() + "-" + user.getDocumento());
     }
 
     private void inicializar() throws GeneralSecurityException {
@@ -108,6 +111,7 @@ public void showContent(JPanel p) {
     }
 
     private void InitStyles() {
+        lblUser.putClientProperty("FlatLaf.styleClass", "h2");
         lblDate.putClientProperty("FlatLaf.styleClass", "h1");
         lblNicova.putClientProperty("FlatLaf.styleClass", "h00");
         jLabel1.putClientProperty("FlatLaf.styleClass", "h3");
@@ -146,6 +150,7 @@ public void showContent(JPanel p) {
         lblDate = new javax.swing.JLabel();
         Content = new javax.swing.JPanel();
         jPanel1 = new javax.swing.JPanel();
+        lblUser = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setResizable(false);
@@ -379,6 +384,8 @@ public void showContent(JPanel p) {
             .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
+        lblUser.setText("Usuario");
+
         javax.swing.GroupLayout backgroundLayout = new javax.swing.GroupLayout(background);
         background.setLayout(backgroundLayout);
         backgroundLayout.setHorizontalGroup(
@@ -389,7 +396,9 @@ public void showContent(JPanel p) {
                     .addComponent(header, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(backgroundLayout.createSequentialGroup()
                         .addGap(6, 6, 6)
-                        .addComponent(lblDate, javax.swing.GroupLayout.PREFERRED_SIZE, 465, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(lblDate, javax.swing.GroupLayout.PREFERRED_SIZE, 465, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(lblUser, javax.swing.GroupLayout.PREFERRED_SIZE, 291, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(Content, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
         );
         backgroundLayout.setVerticalGroup(
@@ -399,7 +408,8 @@ public void showContent(JPanel p) {
                 .addGap(6, 6, 6)
                 .addGroup(backgroundLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(backgroundLayout.createSequentialGroup()
-                        .addGap(34, 34, 34)
+                        .addComponent(lblUser, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(header, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(lblDate, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addComponent(Content, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
@@ -505,5 +515,6 @@ public void showContent(JPanel p) {
     private javax.swing.JButton lblReserva3;
     private javax.swing.JButton lblReserva4;
     private javax.swing.JButton lblReservas;
+    private javax.swing.JLabel lblUser;
     // End of variables declaration//GEN-END:variables
 }

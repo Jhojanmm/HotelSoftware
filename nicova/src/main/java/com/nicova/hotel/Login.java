@@ -4,13 +4,19 @@
  */
 package com.nicova.hotel;
 
+import com.nicova.controllers.GetClientes;
+import com.nicova.controllers.GetUsers;
+import static com.nicova.hotel.DashBoard.verificarYCrearArchivoCSV;
+import com.nicova.objetos.Cliente;
+import com.nicova.objetos.Usuario;
 import java.security.GeneralSecurityException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import java.awt.Dimension;
 import java.awt.Toolkit;
+import java.util.List;
 import javax.swing.JFrame;
-
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -18,10 +24,12 @@ import javax.swing.JFrame;
  */
 public class Login extends javax.swing.JFrame {
 
-    /**
-     * Creates new form Login
-     */
-    public Login() {
+    String csvFile = "C:\\Nicova\\usuarios.csv";
+
+    List<Usuario> listaUsuario = GetUsers.leerUsuarios(csvFile);
+    
+    public Login() throws GeneralSecurityException {
+        com.nicova.hotel.DashBoard.verificarYCrearArchivoCSV("C:\\Nicova\\usuarios.csv", "1eryWNc7sn1KG8PlZFsfsin-DH6NP5SQAgWCUDTk17ys");
         initComponents();
         this.setLocationRelativeTo(bg);
     }
@@ -156,42 +164,55 @@ public class Login extends javax.swing.JFrame {
     }//GEN-LAST:event_usuarioTxtActionPerformed
 
     private void usuarioTxtMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_usuarioTxtMousePressed
-  if(usuarioTxt.getText().equals ("Ingrese su nombre de usuario")){
-      usuarioTxt.setText("");
-  }
-  if(String.valueOf(passTxt.getPassword()).isEmpty()){
-      passTxt.setText("**********");
-  }
+        if (usuarioTxt.getText().equals("Ingrese su nombre de usuario")) {
+            usuarioTxt.setText("");
+        }
+        if (String.valueOf(passTxt.getPassword()).isEmpty()) {
+            passTxt.setText("**********");
+        }
     }//GEN-LAST:event_usuarioTxtMousePressed
 
     private void passTxtMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_passTxtMousePressed
-  if(String.valueOf(passTxt.getPassword()).equals ("**********")){
-      passTxt.setText("");
-  }  
-  if(usuarioTxt.getText().isEmpty()){
-      usuarioTxt.setText("Ingrese su nombre de usuario");
-  }
+        if (String.valueOf(passTxt.getPassword()).equals("**********")) {
+            passTxt.setText("");
+        }
+        if (usuarioTxt.getText().isEmpty()) {
+            usuarioTxt.setText("Ingrese su nombre de usuario");
+        }
     }//GEN-LAST:event_passTxtMousePressed
 
-    
+
     private void loginBtnTxtMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_loginBtnTxtMouseClicked
         DashBoard ventana;
-        try {
-            
-            ventana = new DashBoard();
-            ventana.setExtendedState(JFrame.MAXIMIZED_BOTH);
-            
-            Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
-            int screenWidth = screenSize.width;
-            int screenHeight = screenSize.height;
-        
-            ventana.setLocation(0, 0);
-            ventana.setVisible(true);
-            dispose();
-        } catch (GeneralSecurityException ex) {
-            Logger.getLogger(Login.class.getName()).log(Level.SEVERE, null, ex);
+        boolean check = false;
+        for (Usuario user : listaUsuario) {
+            if (user.getDocumento().equals(usuarioTxt.getText()) && user.getcontraseña().equals(passTxt.getText())) {
+                check = true;
+                try {
+
+                    ventana = new DashBoard();
+
+                    ventana.setExtendedState(JFrame.MAXIMIZED_BOTH);
+
+                    Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
+                    int screenWidth = screenSize.width;
+                    int screenHeight = screenSize.height;
+
+                    ventana.setLocation(0, 0);
+                    ventana.setUser(user);
+
+                    ventana.setVisible(true);
+                    dispose();
+                } catch (GeneralSecurityException ex) {
+                    Logger.getLogger(Login.class.getName()).log(Level.SEVERE, null, ex);
+                }
+            }
         }
-       
+        if (check == false) {
+            JOptionPane.showMessageDialog(null, "El usuario y/o contraseña es incorrecta", "Error", JOptionPane.INFORMATION_MESSAGE);
+        }
+
+
     }//GEN-LAST:event_loginBtnTxtMouseClicked
 
     /**
@@ -224,7 +245,11 @@ public class Login extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new Login().setVisible(true);
+                try {
+                    new Login().setVisible(true);
+                } catch (GeneralSecurityException ex) {
+                    Logger.getLogger(Login.class.getName()).log(Level.SEVERE, null, ex);
+                }
             }
         });
     }

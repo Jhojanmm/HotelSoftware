@@ -51,6 +51,8 @@
                       <Group type="102" attributes="0">
                           <EmptySpace min="6" pref="6" max="-2" attributes="0"/>
                           <Component id="lblDate" min="-2" pref="465" max="-2" attributes="0"/>
+                          <EmptySpace max="32767" attributes="0"/>
+                          <Component id="lblUser" min="-2" pref="291" max="-2" attributes="0"/>
                       </Group>
                       <Component id="Content" max="32767" attributes="0"/>
                   </Group>
@@ -64,7 +66,8 @@
                   <EmptySpace min="6" pref="6" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" attributes="0">
-                          <EmptySpace min="34" pref="34" max="-2" attributes="0"/>
+                          <Component id="lblUser" min="-2" pref="28" max="-2" attributes="0"/>
+                          <EmptySpace max="-2" attributes="0"/>
                           <Component id="header" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <Component id="lblDate" min="-2" pref="35" max="-2" attributes="0"/>
@@ -457,6 +460,11 @@
             </Container>
           </SubComponents>
         </Container>
+        <Component class="javax.swing.JLabel" name="lblUser">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Usuario"/>
+          </Properties>
+        </Component>
       </SubComponents>
     </Container>
   </SubComponents>

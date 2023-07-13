@@ -8,6 +8,7 @@ import com.formdev.flatlaf.intellijthemes.materialthemeuilite.FlatDraculaContras
 import com.formdev.flatlaf.intellijthemes.materialthemeuilite.FlatGitHubIJTheme;
 import com.formdev.flatlaf.intellijthemes.materialthemeuilite.FlatMaterialDarkerIJTheme;
 import com.formdev.flatlaf.intellijthemes.materialthemeuilite.FlatMaterialOceanicIJTheme;
+import java.security.GeneralSecurityException;
 
 
 
@@ -17,7 +18,7 @@ import com.formdev.flatlaf.intellijthemes.materialthemeuilite.FlatMaterialOceani
  */
 public class Nicova {
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws GeneralSecurityException {
         FlatMaterialOceanicIJTheme.setup();
         Login ventana = new Login();
         ventana.setVisible(true);
