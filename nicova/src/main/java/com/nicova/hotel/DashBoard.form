@@ -63,14 +63,16 @@
           <Group type="103" groupAlignment="0" attributes="0">
               <Component id="Menu" min="-2" pref="850" max="-2" attributes="0"/>
               <Group type="102" attributes="0">
-                  <EmptySpace min="6" pref="6" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" attributes="0">
-                          <Component id="lblUser" min="-2" pref="28" max="-2" attributes="0"/>
-                          <EmptySpace max="-2" attributes="0"/>
+                          <EmptySpace min="6" pref="6" max="-2" attributes="0"/>
+                          <Component id="lblDate" min="-2" pref="35" max="-2" attributes="0"/>
+                      </Group>
+                      <Group type="102" attributes="0">
+                          <Component id="lblUser" min="-2" pref="38" max="-2" attributes="0"/>
+                          <EmptySpace min="-2" pref="2" max="-2" attributes="0"/>
                           <Component id="header" min="-2" max="-2" attributes="0"/>
                       </Group>
-                      <Component id="lblDate" min="-2" pref="35" max="-2" attributes="0"/>
                   </Group>
                   <Component id="Content" max="32767" attributes="0"/>
               </Group>
@@ -102,15 +104,19 @@
                   <Component id="Principal" min="-2" pref="260" max="-2" attributes="0"/>
                   <Component id="lblReserva4" min="-2" pref="260" max="-2" attributes="0"/>
                   <Component id="btnCrearEmpleado" min="-2" pref="260" max="-2" attributes="0"/>
-                  <Component id="lblReserva3" min="-2" pref="260" max="-2" attributes="0"/>
+                  <Component id="btnGanancias" min="-2" pref="260" max="-2" attributes="0"/>
+                  <Group type="102" alignment="0" attributes="0">
+                      <EmptySpace min="-2" pref="18" max="-2" attributes="0"/>
+                      <Component id="jLabel6" min="-2" pref="149" max="-2" attributes="0"/>
+                  </Group>
               </Group>
             </DimensionLayout>
             <DimensionLayout dim="1">
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" attributes="0">
-                      <EmptySpace min="37" pref="37" max="-2" attributes="0"/>
-                      <Component id="lblNicova" min="-2" pref="118" max="-2" attributes="0"/>
-                      <EmptySpace min="5" pref="5" max="-2" attributes="0"/>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Component id="lblNicova" min="-2" pref="189" max="-2" attributes="0"/>
+                      <EmptySpace max="-2" attributes="0"/>
                       <Component id="jSeparator1" min="-2" pref="10" max="-2" attributes="0"/>
                       <EmptySpace min="50" pref="50" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
@@ -137,9 +143,12 @@
                           </Group>
                           <Group type="102" attributes="0">
                               <EmptySpace min="250" pref="250" max="-2" attributes="0"/>
-                              <Component id="lblReserva3" min="-2" pref="56" max="-2" attributes="0"/>
+                              <Component id="btnGanancias" min="-2" pref="56" max="-2" attributes="0"/>
                           </Group>
                       </Group>
+                      <EmptySpace pref="172" max="32767" attributes="0"/>
+                      <Component id="jLabel6" min="-2" pref="46" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="15" max="-2" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -236,7 +245,9 @@
             <Component class="javax.swing.JLabel" name="lblNicova">
               <Properties>
                 <Property name="horizontalAlignment" type="int" value="0"/>
-                <Property name="text" type="java.lang.String" value="NICOVA"/>
+                <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+                  <Image iconType="3" name="/com/nicova/imagenes/LOGO NICOVA DORADO 200X200.png"/>
+                </Property>
               </Properties>
             </Component>
             <Component class="javax.swing.JButton" name="lblCliente">
@@ -296,7 +307,7 @@
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnCrearEmpleadoActionPerformed"/>
               </Events>
             </Component>
-            <Component class="javax.swing.JButton" name="lblReserva3">
+            <Component class="javax.swing.JButton" name="btnGanancias">
               <Properties>
                 <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
                   <Image iconType="3" name="/stats.png"/>
@@ -315,7 +326,18 @@
                 <Property name="iconTextGap" type="int" value="15"/>
               </Properties>
               <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="lblReserva3ActionPerformed"/>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnGananciasActionPerformed"/>
+              </Events>
+            </Component>
+            <Component class="javax.swing.JLabel" name="jLabel6">
+              <Properties>
+                <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+                  <Image iconType="3" name="/exit_402718.png"/>
+                </Property>
+                <Property name="text" type="java.lang.String" value="Cerrar Sesi&#xf3;n"/>
+              </Properties>
+              <Events>
+                <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="jLabel6MouseClicked"/>
               </Events>
             </Component>
           </SubComponents>

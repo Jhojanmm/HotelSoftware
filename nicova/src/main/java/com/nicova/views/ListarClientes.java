@@ -16,6 +16,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.ListSelectionModel;
 import javax.swing.event.ListSelectionEvent;
@@ -231,7 +232,12 @@ public class ListarClientes extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        sendPanelInfo();
+        if (txtDisnponibilidad.getText().equals("") || txtId.getText().equals("")) {
+            JOptionPane.showMessageDialog(null, "Por favor selecciona un cliente.", "Campos incompletos", JOptionPane.INFORMATION_MESSAGE);
+        } else {
+            sendPanelInfo();
+        }
+        
     }//GEN-LAST:event_jButton1ActionPerformed
 
 

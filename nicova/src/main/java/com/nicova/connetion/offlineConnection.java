@@ -29,7 +29,17 @@ public class offlineConnection implements Runnable {
         File archivoCSV = new File(rutaArchivo);
 
         if (archivoCSV.exists()) {
-            com.nicova.controllers.OfflineToOnlineCsv.appendCSV(rutaArchivo,rutaDestino);
+            com.nicova.controllers.OfflineToOnlineCsv.appendCSV(rutaArchivo, rutaDestino);
+        }
+    }
+
+    public static boolean verificarArchivoCSV(String rutaArchivo) throws GeneralSecurityException {
+        File archivoCSV = new File(rutaArchivo);
+
+        if(archivoCSV.exists()) {
+            return true;
+        } else {
+            return false;
         }
     }
 
@@ -39,8 +49,12 @@ public class offlineConnection implements Runnable {
             try {
                 InetAddress address = InetAddress.getByName("www.google.com");
                 isConnected = address.isReachable(5000);
-                ActualizarCsv("C:\\Nicova\\clientesOffline.csv","C:\\Nicova\\clientes.csv");
-
+                if (verificarArchivoCSV("C:\\Nicova\\clientesOffline.csv")) {
+                    ActualizarCsv("C:\\Nicova\\clientesOffline.csv", "C:\\Nicova\\clientes.csv");
+                }
+                if (verificarArchivoCSV("C:\\Nicova\\usuariosOffline.csv")) {
+                    ActualizarCsv("C:\\Nicova\\usuariosOffline.csv", "C:\\Nicova\\usuarios.csv");
+                }
             } catch (IOException e) {
                 isConnected = false;
             } catch (GeneralSecurityException ex) {

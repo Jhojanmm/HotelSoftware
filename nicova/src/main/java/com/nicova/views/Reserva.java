@@ -68,6 +68,11 @@ public class Reserva extends javax.swing.JPanel {
                 DocumentTxt1ActionPerformed(evt);
             }
         });
+        DocumentTxt1.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                DocumentTxt1KeyTyped(evt);
+            }
+        });
 
         DocumentButton.setText("Revisar");
         DocumentButton.addActionListener(new java.awt.event.ActionListener() {
@@ -93,6 +98,11 @@ public class Reserva extends javax.swing.JPanel {
                 PhoneTxtActionPerformed(evt);
             }
         });
+        PhoneTxt.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                PhoneTxtKeyTyped(evt);
+            }
+        });
 
         NumeroHB.setFont(new java.awt.Font("Roboto", 1, 14)); // NOI18N
         NumeroHB.setText("Número De Habitación");
@@ -109,6 +119,11 @@ public class Reserva extends javax.swing.JPanel {
         jLabel3.setText("Cantidad De Personas");
 
         jTextField4.setText("Ingrese la cantidad de personas");
+        jTextField4.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                jTextField4KeyTyped(evt);
+            }
+        });
 
         jLabel4.setFont(new java.awt.Font("Roboto", 1, 14)); // NOI18N
         jLabel4.setText("Estado De Reserva");
@@ -221,10 +236,11 @@ public class Reserva extends javax.swing.JPanel {
                     .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(NameTxt, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(NameTxt, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(36, 36, 36)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -282,6 +298,30 @@ public class Reserva extends javax.swing.JPanel {
     private void PhoneTxtActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_PhoneTxtActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_PhoneTxtActionPerformed
+
+    private void DocumentTxt1KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_DocumentTxt1KeyTyped
+        char c = evt.getKeyChar();
+
+        if (!Character.isDigit(c)) {
+            evt.consume(); // Consume el evento para evitar que se muestre el carácter no numérico
+        }
+    }//GEN-LAST:event_DocumentTxt1KeyTyped
+
+    private void jTextField4KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextField4KeyTyped
+        char c = evt.getKeyChar();
+
+        if (!Character.isDigit(c)) {
+            evt.consume(); // Consume el evento para evitar que se muestre el carácter no numérico
+        }
+    }//GEN-LAST:event_jTextField4KeyTyped
+
+    private void PhoneTxtKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_PhoneTxtKeyTyped
+        char c = evt.getKeyChar();
+
+        if (!Character.isDigit(c)) {
+            evt.consume(); // Consume el evento para evitar que se muestre el carácter no numérico
+        }
+    }//GEN-LAST:event_PhoneTxtKeyTyped
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

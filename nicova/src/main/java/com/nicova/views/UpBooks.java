@@ -9,6 +9,8 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 
@@ -17,6 +19,14 @@ public class UpBooks extends javax.swing.JPanel {
     public UpBooks() {
         initComponents();
         InitStyles();
+    }
+
+    public static boolean contieneLetras(String texto) {
+        String patron = ".*[a-zA-Z].*"; // Expresión regular para verificar si hay letras
+        Pattern pattern = Pattern.compile(patron);
+        Matcher matcher = pattern.matcher(texto);
+
+        return matcher.matches();
     }
 
     public void showContent(JPanel p) {
@@ -106,9 +116,27 @@ public class UpBooks extends javax.swing.JPanel {
 
         dateLbl.setText("Numero de documento");
 
+        DocumentTxt.addContainerListener(new java.awt.event.ContainerAdapter() {
+            public void componentAdded(java.awt.event.ContainerEvent evt) {
+                DocumentTxtComponentAdded(evt);
+            }
+        });
         DocumentTxt.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 DocumentTxtActionPerformed(evt);
+            }
+        });
+        DocumentTxt.addPropertyChangeListener(new java.beans.PropertyChangeListener() {
+            public void propertyChange(java.beans.PropertyChangeEvent evt) {
+                DocumentTxtPropertyChange(evt);
+            }
+        });
+        DocumentTxt.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                DocumentTxtKeyPressed(evt);
+            }
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                DocumentTxtKeyTyped(evt);
             }
         });
 
@@ -121,6 +149,11 @@ public class UpBooks extends javax.swing.JPanel {
         pagsLbl.setText("Telefono");
 
         PhoneTxt.setToolTipText("");
+        PhoneTxt.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                PhoneTxtKeyTyped(evt);
+            }
+        });
 
         descLbl.setText("Ocupación");
 
@@ -258,14 +291,18 @@ public class UpBooks extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void ButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonActionPerformed
-        String[] data = Save();
-        try {
-            com.nicova.controllers.AddClient.main(data);
-        } catch (GeneralSecurityException ex) {
-            Logger.getLogger(UpBooks.class.getName()).log(Level.SEVERE, null, ex);
+        if (NameTxt.getText().equals("") || DocumentTxt.getText().equals("") || EmaiTxt.getText().equals("") || PhoneTxt.getText().equals("") || OccupationTxt.getText().equals("") || AddressTxt.getText().equals("")) {
+            JOptionPane.showMessageDialog(null, "Por favor completa todos los campos", "Campos incompletos", JOptionPane.INFORMATION_MESSAGE);
+        } else {
+            String[] data = Save();
+            try {
+                com.nicova.controllers.AddClient.main(data);
+            } catch (GeneralSecurityException ex) {
+                Logger.getLogger(UpBooks.class.getName()).log(Level.SEVERE, null, ex);
+            }
+            JOptionPane.showMessageDialog(null, "Cliente Agregado Correctamente", "Usuario Creado", JOptionPane.INFORMATION_MESSAGE);
+            Clear();
         }
-        JOptionPane.showMessageDialog(null, "Cliente Agregado Correctamente", "Usuario Creado", JOptionPane.INFORMATION_MESSAGE);
-        Clear();
     }//GEN-LAST:event_ButtonActionPerformed
 
     private void NameTxtActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_NameTxtActionPerformed
@@ -279,6 +316,34 @@ public class UpBooks extends javax.swing.JPanel {
     private void DocumentTxtActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_DocumentTxtActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_DocumentTxtActionPerformed
+
+    private void DocumentTxtComponentAdded(java.awt.event.ContainerEvent evt) {//GEN-FIRST:event_DocumentTxtComponentAdded
+
+    }//GEN-LAST:event_DocumentTxtComponentAdded
+
+    private void DocumentTxtPropertyChange(java.beans.PropertyChangeEvent evt) {//GEN-FIRST:event_DocumentTxtPropertyChange
+
+    }//GEN-LAST:event_DocumentTxtPropertyChange
+
+    private void DocumentTxtKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_DocumentTxtKeyPressed
+
+    }//GEN-LAST:event_DocumentTxtKeyPressed
+
+    private void DocumentTxtKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_DocumentTxtKeyTyped
+        char c = evt.getKeyChar();
+
+        if (!Character.isDigit(c)) {
+            evt.consume(); // Consume el evento para evitar que se muestre el carácter no numérico
+        }
+    }//GEN-LAST:event_DocumentTxtKeyTyped
+
+    private void PhoneTxtKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_PhoneTxtKeyTyped
+        char c = evt.getKeyChar();
+
+        if (!Character.isDigit(c)) {
+            evt.consume(); // Consume el evento para evitar que se muestre el carácter no numérico
+        }
+    }//GEN-LAST:event_PhoneTxtKeyTyped
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextField AddressTxt;

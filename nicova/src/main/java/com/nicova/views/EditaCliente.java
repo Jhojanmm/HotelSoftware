@@ -15,21 +15,19 @@ import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 
 public class EditaCliente extends javax.swing.JPanel {
-    
-    
+
     String csvFile = "C:\\Nicova\\clientes.csv";
     List<Cliente> listaCliente = GetClientes.leerClientes(csvFile);
     private String id;
-    
-    
+
     public EditaCliente() {
         initComponents();
         InitStyles();
-        
+
     }
-    
-    public void setCliente(String id){
-        
+
+    public void setCliente(String id) {
+
         System.out.println(id);
         this.id = id;
         for (Cliente cliente : listaCliente) {
@@ -42,7 +40,7 @@ public class EditaCliente extends javax.swing.JPanel {
                 AddressTxt.setText(cliente.getdireccion());
             }
         }
-        
+
     }
 
     private void InitStyles() {
@@ -56,23 +54,20 @@ public class EditaCliente extends javax.swing.JPanel {
         AddressTxt.putClientProperty("JTextField.placeholderText", "Ingrese la Direccion de Domicilio.");
 
     }
-    
+
     public void showContent(JPanel p) {
         bg.setLayout(new BorderLayout());
         bg.removeAll();
         bg.add(p, BorderLayout.CENTER);
         bg.revalidate();
         bg.repaint();
-        
+
         // Configurar el tamaño del Content al tamaño de la pantalla
         Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
         bg.setSize(screenSize.width, screenSize.height);
 
         // Establecer el layout del Content
-        
-
         // Establecer el JPanel en la región central
-        
     }
 
     private String[] Save() {
@@ -131,6 +126,11 @@ public class EditaCliente extends javax.swing.JPanel {
         NameTxt.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 NameTxtActionPerformed(evt);
+            }
+        });
+        NameTxt.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                NameTxtKeyTyped(evt);
             }
         });
 
@@ -276,11 +276,16 @@ public class EditaCliente extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void ButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonActionPerformed
-        String[] data = Save();
-        com.nicova.controllers.GetClientes.actualizarCliente(csvFile, NameTxt.getText(), DocumentTxt.getText(), EmaiTxt.getText(), PhoneTxt.getText(), OccupationTxt.getText(), AddressTxt.getText());
-        com.nicova.hotel.csvToSheet.main("1f2tjSzo8NbGoYk-ERMuGhaOrSD7x1FaQ4XJOBuBVCt8", "C:\\Nicova\\clientes.csv");
-        JOptionPane.showMessageDialog(null, "Cliente Actualizado Correctamente", "Usuario Actualizado", JOptionPane.INFORMATION_MESSAGE);
-        Clear();
+        if (NameTxt.getText().equals("") || DocumentTxt.getText().equals("") || EmaiTxt.getText().equals("") || PhoneTxt.getText().equals("") || OccupationTxt.getText().equals("") || AddressTxt.getText().equals("")) {
+            JOptionPane.showMessageDialog(null, "Por favor completa todos los campos", "Campos incompletos", JOptionPane.INFORMATION_MESSAGE);
+        } else {
+            String[] data = Save();
+            com.nicova.controllers.GetClientes.actualizarCliente(csvFile, NameTxt.getText(), DocumentTxt.getText(), EmaiTxt.getText(), PhoneTxt.getText(), OccupationTxt.getText(), AddressTxt.getText());
+            com.nicova.hotel.csvToSheet.main("1f2tjSzo8NbGoYk-ERMuGhaOrSD7x1FaQ4XJOBuBVCt8", "C:\\Nicova\\clientes.csv");
+            JOptionPane.showMessageDialog(null, "Cliente Actualizado Correctamente", "Usuario Actualizado", JOptionPane.INFORMATION_MESSAGE);
+            Clear();
+        }
+
     }//GEN-LAST:event_ButtonActionPerformed
 
     private void NameTxtActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_NameTxtActionPerformed
@@ -290,6 +295,14 @@ public class EditaCliente extends javax.swing.JPanel {
     private void lblAtrasMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblAtrasMousePressed
         showContent(new UpBooks());
     }//GEN-LAST:event_lblAtrasMousePressed
+
+    private void NameTxtKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_NameTxtKeyTyped
+        char c = evt.getKeyChar();
+
+        if (!Character.isDigit(c)) {
+            evt.consume(); // Consume el evento para evitar que se muestre el carácter no numérico
+        }
+    }//GEN-LAST:event_NameTxtKeyTyped
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextField AddressTxt;

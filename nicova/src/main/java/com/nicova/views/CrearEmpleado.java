@@ -28,8 +28,8 @@ public class CrearEmpleado extends javax.swing.JPanel {
 
         return data;
     }
-    
-    private void Clear(){
+
+    private void Clear() {
         txtContraseña.setText("");
         txtCorreo.setText("");
         txtDocumento.setText("");
@@ -69,6 +69,12 @@ public class CrearEmpleado extends javax.swing.JPanel {
         lblNombre.setText("Nombre");
 
         lblDocumento.setText("Documento");
+
+        txtDocumento.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtDocumentoKeyTyped(evt);
+            }
+        });
 
         lblCorreo.setText("Correo");
 
@@ -178,16 +184,27 @@ public class CrearEmpleado extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnCrearActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCrearActionPerformed
-        String[] data = Save();
-        try {
-            com.nicova.controllers.AddUser.main(data);
-        } catch (GeneralSecurityException ex) {
-            Logger.getLogger(CrearEmpleado.class.getName()).log(Level.SEVERE, null, ex);
+        if (txtContraseña.getText().equals("") || txtCorreo.getText().equals("") || txtDocumento.getText().equals("") || txtNombre.getText().equals("")) {
+            JOptionPane.showMessageDialog(null, "Por favor completa todos los campos", "Campos incompletos", JOptionPane.INFORMATION_MESSAGE);
+        } else {
+            String[] data = Save();
+            try {
+                com.nicova.controllers.AddUser.main(data);
+            } catch (GeneralSecurityException ex) {
+                Logger.getLogger(CrearEmpleado.class.getName()).log(Level.SEVERE, null, ex);
+            }
+            JOptionPane.showMessageDialog(null, "Usuario Agregado Correctamente", "Usuario Creado", JOptionPane.INFORMATION_MESSAGE);
+            Clear();
         }
-        JOptionPane.showMessageDialog(null, "Usuario Agregado Correctamente", "Usuario Creado", JOptionPane.INFORMATION_MESSAGE);
-        Clear();
-
     }//GEN-LAST:event_btnCrearActionPerformed
+
+    private void txtDocumentoKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtDocumentoKeyTyped
+        char c = evt.getKeyChar();
+
+        if (!Character.isDigit(c)) {
+            evt.consume(); // Consume el evento para evitar que se muestre el carácter no numérico
+        }
+    }//GEN-LAST:event_txtDocumentoKeyTyped
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
