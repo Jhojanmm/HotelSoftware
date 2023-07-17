@@ -13,7 +13,7 @@ import com.nicova.views.Ganancias;
 import com.nicova.views.Habitaciones;
 import com.nicova.views.Inventario;
 import com.nicova.views.Principal;
-import com.nicova.views.Reserva;
+import com.nicova.views.PrincipalReserva;
 import com.nicova.views.UpBooks;
 import java.awt.BorderLayout;
 import java.io.File;
@@ -236,7 +236,6 @@ public class DashBoard extends javax.swing.JFrame {
         });
 
         lblNicova.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lblNicova.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/nicova/imagenes/LOGO NICOVA DORADO 200X200.png"))); // NOI18N
 
         lblCliente.setIcon(new javax.swing.ImageIcon(getClass().getResource("/user (1).png"))); // NOI18N
         lblCliente.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 15, 1, 1, new java.awt.Color(0, 0, 0)));
@@ -255,7 +254,6 @@ public class DashBoard extends javax.swing.JFrame {
         jSeparator1.setForeground(new java.awt.Color(255, 255, 255));
         jSeparator1.setPreferredSize(new java.awt.Dimension(50, 30));
 
-        btnCrearEmpleado.setIcon(new javax.swing.ImageIcon(getClass().getResource("/group_694642 (4).png"))); // NOI18N
         btnCrearEmpleado.setText("Crear Empleado");
         btnCrearEmpleado.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 15, 1, 1, new java.awt.Color(0, 0, 0)));
         btnCrearEmpleado.setBorderPainted(false);
@@ -281,7 +279,6 @@ public class DashBoard extends javax.swing.JFrame {
             }
         });
 
-        jLabel6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/exit_402718.png"))); // NOI18N
         jLabel6.setText("Cerrar Sesión");
         jLabel6.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -363,7 +360,6 @@ public class DashBoard extends javax.swing.JFrame {
             .addComponent(lbldisponibles, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 22, Short.MAX_VALUE)
         );
 
-        lblnumeroDispo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/hotel_489870 (5).png"))); // NOI18N
         lblnumeroDispo.setText("30");
         lblnumeroDispo.setIconTextGap(15);
 
@@ -406,7 +402,6 @@ public class DashBoard extends javax.swing.JFrame {
             .addComponent(lblOcupadas, javax.swing.GroupLayout.DEFAULT_SIZE, 22, Short.MAX_VALUE)
         );
 
-        lblNumeroOcupadas.setIcon(new javax.swing.ImageIcon(getClass().getResource("/disturb_527445 (1).png"))); // NOI18N
         lblNumeroOcupadas.setText("5");
         lblNumeroOcupadas.setIconTextGap(15);
 
@@ -426,7 +421,7 @@ public class DashBoard extends javax.swing.JFrame {
                 .addComponent(jPanel6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(lblNumeroOcupadas, javax.swing.GroupLayout.PREFERRED_SIZE, 69, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 16, Short.MAX_VALUE))
+                .addGap(0, 17, Short.MAX_VALUE))
         );
 
         jPanel4.setBackground(new java.awt.Color(255, 255, 255));
@@ -449,7 +444,6 @@ public class DashBoard extends javax.swing.JFrame {
             .addComponent(lblNoPagadas, javax.swing.GroupLayout.DEFAULT_SIZE, 22, Short.MAX_VALUE)
         );
 
-        lblNumeroNoPagas.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ad-block_10037836 (1).png"))); // NOI18N
         lblNumeroNoPagas.setText("2");
         lblNumeroNoPagas.setIconTextGap(15);
 
@@ -530,7 +524,7 @@ public class DashBoard extends javax.swing.JFrame {
             headerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, headerLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jPanel8, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
+                .addComponent(jPanel8, javax.swing.GroupLayout.PREFERRED_SIZE, 473, Short.MAX_VALUE)
                 .addGap(18, 18, 18)
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(27, 27, 27)
@@ -547,9 +541,8 @@ public class DashBoard extends javax.swing.JFrame {
                     .addComponent(jPanel8, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(headerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                         .addComponent(jPanel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addGroup(headerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                        .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                 .addContainerGap(15, Short.MAX_VALUE))
         );
 
@@ -593,6 +586,7 @@ public class DashBoard extends javax.swing.JFrame {
             .addGroup(backgroundLayout.createSequentialGroup()
                 .addGap(40, 40, 40)
                 .addComponent(header, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, 0)
                 .addComponent(Content, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -612,7 +606,7 @@ public class DashBoard extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void lblReservasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_lblReservasActionPerformed
-        showContent(new Reserva());
+        showContent(new PrincipalReserva());
     }//GEN-LAST:event_lblReservasActionPerformed
 
     private void PrincipalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_PrincipalActionPerformed

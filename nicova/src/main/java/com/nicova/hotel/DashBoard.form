@@ -59,6 +59,7 @@
               <Group type="102" attributes="0">
                   <EmptySpace min="-2" pref="40" max="-2" attributes="0"/>
                   <Component id="header" min="-2" max="-2" attributes="0"/>
+                  <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
                   <Component id="Content" max="32767" attributes="0"/>
               </Group>
           </Group>
@@ -230,9 +231,6 @@
             <Component class="javax.swing.JLabel" name="lblNicova">
               <Properties>
                 <Property name="horizontalAlignment" type="int" value="0"/>
-                <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                  <Image iconType="3" name="/com/nicova/imagenes/LOGO NICOVA DORADO 200X200.png"/>
-                </Property>
               </Properties>
             </Component>
             <Component class="javax.swing.JButton" name="lblCliente">
@@ -272,9 +270,6 @@
             </Component>
             <Component class="javax.swing.JButton" name="btnCrearEmpleado">
               <Properties>
-                <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                  <Image iconType="3" name="/group_694642 (4).png"/>
-                </Property>
                 <Property name="text" type="java.lang.String" value="Crear Empleado"/>
                 <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
                   <Border info="org.netbeans.modules.form.compat2.border.MatteColorBorderInfo">
@@ -316,9 +311,6 @@
             </Component>
             <Component class="javax.swing.JLabel" name="jLabel6">
               <Properties>
-                <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                  <Image iconType="3" name="/exit_402718.png"/>
-                </Property>
                 <Property name="text" type="java.lang.String" value="Cerrar Sesi&#xf3;n"/>
               </Properties>
               <Events>
@@ -339,7 +331,7 @@
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="1" attributes="0">
                       <EmptySpace max="-2" attributes="0"/>
-                      <Component id="jPanel8" pref="0" max="32767" attributes="0"/>
+                      <Component id="jPanel8" pref="473" max="32767" attributes="0"/>
                       <EmptySpace type="separate" max="-2" attributes="0"/>
                       <Component id="jPanel2" min="-2" max="-2" attributes="0"/>
                       <EmptySpace min="-2" pref="27" max="-2" attributes="0"/>
@@ -358,10 +350,8 @@
                           <Component id="jPanel8" min="-2" pref="125" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" max="-2" attributes="0">
                               <Component id="jPanel4" max="32767" attributes="0"/>
-                              <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                  <Component id="jPanel3" max="32767" attributes="0"/>
-                                  <Component id="jPanel2" max="32767" attributes="0"/>
-                              </Group>
+                              <Component id="jPanel3" max="32767" attributes="0"/>
+                              <Component id="jPanel2" max="32767" attributes="0"/>
                           </Group>
                       </Group>
                       <EmptySpace pref="15" max="32767" attributes="0"/>
@@ -433,9 +423,6 @@
                 </Container>
                 <Component class="javax.swing.JLabel" name="lblnumeroDispo">
                   <Properties>
-                    <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                      <Image iconType="3" name="/hotel_489870 (5).png"/>
-                    </Property>
                     <Property name="text" type="java.lang.String" value="30"/>
                     <Property name="iconTextGap" type="int" value="15"/>
                   </Properties>
@@ -466,7 +453,7 @@
                           <Component id="jPanel6" min="-2" max="-2" attributes="0"/>
                           <EmptySpace type="separate" max="-2" attributes="0"/>
                           <Component id="lblNumeroOcupadas" min="-2" pref="69" max="-2" attributes="0"/>
-                          <EmptySpace min="0" pref="16" max="32767" attributes="0"/>
+                          <EmptySpace min="0" pref="17" max="32767" attributes="0"/>
                       </Group>
                   </Group>
                 </DimensionLayout>
@@ -505,9 +492,6 @@
                 </Container>
                 <Component class="javax.swing.JLabel" name="lblNumeroOcupadas">
                   <Properties>
-                    <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                      <Image iconType="3" name="/disturb_527445 (1).png"/>
-                    </Property>
                     <Property name="text" type="java.lang.String" value="5"/>
                     <Property name="iconTextGap" type="int" value="15"/>
                   </Properties>
@@ -577,9 +561,6 @@
                 </Container>
                 <Component class="javax.swing.JLabel" name="lblNumeroNoPagas">
                   <Properties>
-                    <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                      <Image iconType="3" name="/ad-block_10037836 (1).png"/>
-                    </Property>
                     <Property name="text" type="java.lang.String" value="2"/>
                     <Property name="iconTextGap" type="int" value="15"/>
                   </Properties>

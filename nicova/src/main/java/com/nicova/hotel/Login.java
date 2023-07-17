@@ -23,6 +23,7 @@ import javax.swing.JOptionPane;
  * @author cesar
  */
 public class Login extends javax.swing.JFrame {
+    
 
     String csvFile = "C:\\Nicova\\usuarios.csv";
 
@@ -31,6 +32,7 @@ public class Login extends javax.swing.JFrame {
     public Login() throws GeneralSecurityException {
         com.nicova.hotel.DashBoard.verificarYCrearArchivoCSV("C:\\Nicova\\usuarios.csv", "1eryWNc7sn1KG8PlZFsfsin-DH6NP5SQAgWCUDTk17ys");
         initComponents();
+        InitStyles();
         this.setLocationRelativeTo(bg);
     }
 
@@ -47,13 +49,13 @@ public class Login extends javax.swing.JFrame {
         logo = new javax.swing.JLabel();
         iniciarSesion = new javax.swing.JLabel();
         usuario = new javax.swing.JLabel();
-        usuarioTxt = new javax.swing.JTextField();
         usuarioSeparator = new javax.swing.JSeparator();
         pass = new javax.swing.JLabel();
-        passTxt = new javax.swing.JPasswordField();
         passSeparator = new javax.swing.JSeparator();
         loginBtn = new javax.swing.JPanel();
         loginBtnTxt = new javax.swing.JLabel();
+        usuarioTxt = new javax.swing.JTextField();
+        passTxt = new javax.swing.JPasswordField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(255, 255, 255));
@@ -76,24 +78,6 @@ public class Login extends javax.swing.JFrame {
         usuario.setText("USUARIO");
         bg.add(usuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 160, 300, 20));
 
-        usuarioTxt.setBackground(new java.awt.Color(38, 50, 56));
-        usuarioTxt.setFont(new java.awt.Font("Roboto Light", 0, 14)); // NOI18N
-        usuarioTxt.setForeground(new java.awt.Color(204, 204, 204));
-        usuarioTxt.setText("Ingrese su nombre de usuario");
-        usuarioTxt.setBorder(null);
-        usuarioTxt.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
-        usuarioTxt.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mousePressed(java.awt.event.MouseEvent evt) {
-                usuarioTxtMousePressed(evt);
-            }
-        });
-        usuarioTxt.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                usuarioTxtActionPerformed(evt);
-            }
-        });
-        bg.add(usuarioTxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 200, 330, 30));
-
         usuarioSeparator.setBackground(new java.awt.Color(200, 172, 84));
         usuarioSeparator.setForeground(new java.awt.Color(200, 172, 84));
         bg.add(usuarioSeparator, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 230, 330, -1));
@@ -102,18 +86,6 @@ public class Login extends javax.swing.JFrame {
         pass.setForeground(new java.awt.Color(200, 172, 84));
         pass.setText("CONTRASEÑA");
         bg.add(pass, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 270, 160, 20));
-
-        passTxt.setBackground(new java.awt.Color(38, 50, 56));
-        passTxt.setFont(new java.awt.Font("Roboto Light", 0, 14)); // NOI18N
-        passTxt.setForeground(new java.awt.Color(204, 204, 204));
-        passTxt.setText("**********");
-        passTxt.setBorder(null);
-        passTxt.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mousePressed(java.awt.event.MouseEvent evt) {
-                passTxtMousePressed(evt);
-            }
-        });
-        bg.add(passTxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 310, 330, 30));
 
         passSeparator.setBackground(new java.awt.Color(200, 172, 84));
         passSeparator.setForeground(new java.awt.Color(200, 172, 84));
@@ -145,6 +117,16 @@ public class Login extends javax.swing.JFrame {
 
         bg.add(loginBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 380, 210, 50));
 
+        usuarioTxt.setBackground(new java.awt.Color(38, 50, 56));
+        usuarioTxt.setForeground(new java.awt.Color(153, 153, 153));
+        usuarioTxt.setBorder(null);
+        bg.add(usuarioTxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 200, 330, 30));
+
+        passTxt.setBackground(new java.awt.Color(38, 50, 56));
+        passTxt.setForeground(new java.awt.Color(153, 153, 153));
+        passTxt.setBorder(null);
+        bg.add(passTxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 310, 330, 30));
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -159,28 +141,10 @@ public class Login extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void usuarioTxtActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_usuarioTxtActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_usuarioTxtActionPerformed
-
-    private void usuarioTxtMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_usuarioTxtMousePressed
-        if (usuarioTxt.getText().equals("Ingrese su nombre de usuario")) {
-            usuarioTxt.setText("");
-        }
-        if (String.valueOf(passTxt.getPassword()).isEmpty()) {
-            passTxt.setText("**********");
-        }
-    }//GEN-LAST:event_usuarioTxtMousePressed
-
-    private void passTxtMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_passTxtMousePressed
-        if (String.valueOf(passTxt.getPassword()).equals("**********")) {
-            passTxt.setText("");
-        }
-        if (usuarioTxt.getText().isEmpty()) {
-            usuarioTxt.setText("Ingrese su nombre de usuario");
-        }
-    }//GEN-LAST:event_passTxtMousePressed
-
+    
+    private void InitStyles() {
+        usuarioTxt.putClientProperty("JTextField.placeholderText", "Ingrese El Nombre De Usuario.");
+    }
 
     private void loginBtnTxtMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_loginBtnTxtMouseClicked
         DashBoard ventana;
