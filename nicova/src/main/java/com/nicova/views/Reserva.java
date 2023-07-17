@@ -4,6 +4,7 @@
  */
 package com.nicova.views;
 
+import com.nicova.objetos.Cliente;
 import java.text.SimpleDateFormat;
 
 /**
@@ -21,6 +22,16 @@ public class Reserva extends javax.swing.JPanel {
         this.calendarioVisible = false;
         jCalendarEntrada.setVisible(false);
         jCalendarSalida.setVisible(false);
+    }
+
+    public void SetDatos(Cliente cliente) {
+        System.out.println(cliente.GetCorreo());
+        lblDireccion.setText(cliente.getdireccion());
+        lblDocumento.setText(cliente.getDocumento());
+        lblEmail.setText(cliente.GetCorreo());
+        lblNombre.setText(cliente.getNombre());
+        lblOcupacion.setText(cliente.getOcupacion());
+        lbltelefono.setText(cliente.getTelefono());
     }
 
     /**
@@ -41,6 +52,12 @@ public class Reserva extends javax.swing.JPanel {
         jLabel5 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
+        lblNombre = new javax.swing.JLabel();
+        lblDocumento = new javax.swing.JLabel();
+        lblEmail = new javax.swing.JLabel();
+        lbltelefono = new javax.swing.JLabel();
+        lblOcupacion = new javax.swing.JLabel();
+        lblDireccion = new javax.swing.JLabel();
         jPanel1 = new javax.swing.JPanel();
         jLabel8 = new javax.swing.JLabel();
         jLabel9 = new javax.swing.JLabel();
@@ -54,15 +71,15 @@ public class Reserva extends javax.swing.JPanel {
         jLabel11 = new javax.swing.JLabel();
         jSpinner1 = new javax.swing.JSpinner();
         jLabel12 = new javax.swing.JLabel();
-        jComboBox1 = new javax.swing.JComboBox<>();
-        jLabel13 = new javax.swing.JLabel();
-        jTextField2 = new javax.swing.JTextField();
+        comboEstadoReserva = new javax.swing.JComboBox<>();
+        lblAnticipo = new javax.swing.JLabel();
+        txtAnticipo = new javax.swing.JTextField();
         jLabel14 = new javax.swing.JLabel();
-        JSpinnerHora = new javax.swing.JSpinner();
+        spinerLlegada = new javax.swing.JSpinner();
         jLabel15 = new javax.swing.JLabel();
-        jComboBox2 = new javax.swing.JComboBox<>();
-        jLabel16 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
+        comboRetencion = new javax.swing.JComboBox<>();
+        lblRetencion = new javax.swing.JLabel();
+        txtRetencion = new javax.swing.JTextField();
         jLabel17 = new javax.swing.JLabel();
         jTextField3 = new javax.swing.JTextField();
         jButton1 = new javax.swing.JButton();
@@ -95,25 +112,40 @@ public class Reserva extends javax.swing.JPanel {
             headerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jLabel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(headerLayout.createSequentialGroup()
-                .addContainerGap()
+                .addGap(48, 48, 48)
                 .addGroup(headerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(headerLayout.createSequentialGroup()
-                        .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, 116, Short.MAX_VALUE)
+                        .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addGap(27, 27, 27))
                     .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addGap(238, 238, 238)
+                .addGroup(headerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addGroup(headerLayout.createSequentialGroup()
+                        .addGap(3, 3, 3)
+                        .addComponent(lblNombre, javax.swing.GroupLayout.PREFERRED_SIZE, 205, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(headerLayout.createSequentialGroup()
+                        .addGap(18, 18, 18)
+                        .addComponent(lblDocumento, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                .addGap(32, 32, 32)
                 .addGroup(headerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel4, javax.swing.GroupLayout.DEFAULT_SIZE, 116, Short.MAX_VALUE)
+                    .addComponent(jLabel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(headerLayout.createSequentialGroup()
                         .addComponent(jLabel5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addGap(5, 5, 5)))
-                .addGap(322, 322, 322)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(headerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(lblEmail, javax.swing.GroupLayout.PREFERRED_SIZE, 217, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lbltelefono, javax.swing.GroupLayout.PREFERRED_SIZE, 204, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(95, 95, 95)
                 .addGroup(headerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(headerLayout.createSequentialGroup()
-                        .addComponent(jLabel6, javax.swing.GroupLayout.DEFAULT_SIZE, 73, Short.MAX_VALUE)
-                        .addGap(74, 74, 74))
-                    .addComponent(jLabel7, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addGap(233, 233, 233))
+                        .addComponent(jLabel7, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(lblDireccion, javax.swing.GroupLayout.PREFERRED_SIZE, 171, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(headerLayout.createSequentialGroup()
+                        .addComponent(jLabel6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGap(59, 59, 59)
+                        .addComponent(lblOcupacion, javax.swing.GroupLayout.PREFERRED_SIZE, 192, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(58, 58, 58))
         );
         headerLayout.setVerticalGroup(
             headerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -121,14 +153,24 @@ public class Reserva extends javax.swing.JPanel {
                 .addComponent(jLabel1)
                 .addGap(16, 16, 16)
                 .addGroup(headerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(lblEmail, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jLabel6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jLabel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, 30, Short.MAX_VALUE))
+                    .addComponent(jLabel4)
+                    .addGroup(headerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(lblNombre, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(lblOcupacion, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(headerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, 30, Short.MAX_VALUE)
-                    .addComponent(jLabel5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jLabel7, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                    .addGroup(headerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(lblDocumento, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jLabel5)
+                    .addComponent(jLabel7, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addGroup(headerLayout.createSequentialGroup()
+                        .addComponent(lbltelefono, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addContainerGap())
+                    .addComponent(lblDireccion, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
         );
 
         jPanel1.setBackground(new java.awt.Color(40, 55, 62));
@@ -187,25 +229,37 @@ public class Reserva extends javax.swing.JPanel {
         jLabel12.setForeground(new java.awt.Color(204, 204, 204));
         jLabel12.setText("Estado De Reserva");
 
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Paga", "Anticipo", "Pendiente De Pago" }));
+        comboEstadoReserva.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Paga", "Anticipo", "Pendiente De Pago" }));
+        comboEstadoReserva.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                comboEstadoReservaActionPerformed(evt);
+            }
+        });
 
-        jLabel13.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        jLabel13.setForeground(new java.awt.Color(204, 204, 204));
-        jLabel13.setText("Cantidad De Anticipo");
+        lblAnticipo.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        lblAnticipo.setForeground(new java.awt.Color(204, 204, 204));
+        lblAnticipo.setText("Cantidad De Anticipo");
 
         jLabel14.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jLabel14.setForeground(new java.awt.Color(204, 204, 204));
         jLabel14.setText("Hora De Llegada");
 
+        spinerLlegada.setModel(new javax.swing.SpinnerListModel(new String[] {"00:00", "00:10", "00:20", "00:30", "00:40", "00:50", "01:00", "01:10", "01:20", "01:30", "01:40", "01:50", "02:00", "02:10", "02:20", "02:30", "02:40", "02:50", "03:00", "03:10", "03:20", "03:30", "03:40", "03:50", "04:00", "04:10", "04:20", "04:30", "04:40", "04:50", "05:00", "05:10", "05:20", "05:30", "05:40", "05:50", "06:00", "06:10", "06:20", "06:30", "06:40", "06:50", "07:00", "07:10", "07:20", "07:30", "07:40", "07:50", "08:00", "08:10", "08:20", "08:30", "08:40", "08:50", "09:00", "09:10", "09:20", "09:30", "09:40", "09:50", "10:00", "10:10", "10:20", "10:30", "10:40", "10:50", "11:00", "11:10", "11:20", "11:30", "11:40", "11:50", "12:00", "12:10", "12:20", "12:30", "12:40", "12:50", "13:00", "13:10", "13:20", "13:30", "13:40", "13:50", "14:00", "14:10", "14:20", "14:30", "14:40", "14:50", "15:00", "15:10", "15:20", "15:30", "15:40", "15:50", "16:00", "16:10", "16:20", "16:30", "16:40", "16:50", "17:00", "17:10", "17:20", "17:30", "17:40", "17:50", "18:00", "18:10", "18:20", "18:30", "18:40", "18:50", "19:00", "19:10", "19:20", "19:30", "19:40", "19:50", "20:00", "20:10", "20:20", "20:30", "20:40", "20:50", "21:00", "21:10", "21:20", "21:30", "21:40", "21:50", "22:00", "22:10", "22:20", "22:30", "22:40", "22:50", "23:00", "23:10", "23:20", "23:30", "23:40", "23:50"}));
+
         jLabel15.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jLabel15.setForeground(new java.awt.Color(204, 204, 204));
         jLabel15.setText("Retención En La Fuente");
 
-        jComboBox2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "No", "Si", " " }));
+        comboRetencion.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "No", "Si", " " }));
+        comboRetencion.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                comboRetencionActionPerformed(evt);
+            }
+        });
 
-        jLabel16.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        jLabel16.setForeground(new java.awt.Color(204, 204, 204));
-        jLabel16.setText("Porcentaje De Retención");
+        lblRetencion.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        lblRetencion.setForeground(new java.awt.Color(204, 204, 204));
+        lblRetencion.setText("Porcentaje De Retención");
 
         jLabel17.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         jLabel17.setForeground(new java.awt.Color(204, 204, 204));
@@ -230,10 +284,10 @@ public class Reserva extends javax.swing.JPanel {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel13, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(lblAnticipo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(jLabel12, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jComboBox1, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jTextField2))
+                            .addComponent(comboEstadoReserva, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(txtAnticipo))
                         .addGap(100, 100, 100))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -248,16 +302,16 @@ public class Reserva extends javax.swing.JPanel {
                         .addGap(92, 92, 92)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel14, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(JSpinnerHora))
+                            .addComponent(spinerLlegada))
                         .addGap(120, 120, 120)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel16, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(lblRetencion, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(jLabel15, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(jComboBox2, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                    .addComponent(comboRetencion, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                                 .addGap(10, 10, 10))
-                            .addComponent(jTextField1))
+                            .addComponent(txtRetencion))
                         .addGap(154, 154, 154))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -306,12 +360,12 @@ public class Reserva extends javax.swing.JPanel {
                         .addComponent(jLabel10, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(txtEntrada, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(86, 86, 86)
+                .addGap(50, 50, 50)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addComponent(jLabel12, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(comboEstadoReserva, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel11, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -320,16 +374,16 @@ public class Reserva extends javax.swing.JPanel {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jSpinner1, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(JSpinnerHora, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jComboBox2, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                            .addComponent(spinerLlegada, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(comboRetencion, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel13, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel16, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(lblAnticipo, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lblRetencion, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtAnticipo, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtRetencion, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addComponent(jLabel17)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -372,19 +426,23 @@ public class Reserva extends javax.swing.JPanel {
         );
     }// </editor-fold>//GEN-END:initComponents
 
-    
-        private void InitStyles() {
+    private void InitStyles() {
         txthb.putClientProperty("JTextField.placeholderText", "Ingrese el Número de habitación.");
-        }
+        txtRetencion.setVisible(false);
+        lblRetencion.setVisible(false);
+        lblAnticipo.setVisible(false);
+        txtAnticipo.setVisible(false);
+        
+    }
     private boolean calendarioVisible;
 
     private void jCalendarEntradaPropertyChange(java.beans.PropertyChangeEvent evt) {//GEN-FIRST:event_jCalendarEntradaPropertyChange
-        
+
         if (calendarioVisible && evt.getOldValue() != null) {
             SimpleDateFormat ff = new SimpleDateFormat("dd/MM/yyyy");
             txtEntrada.setText(ff.format(jCalendarEntrada.getDate()));
             toggleCalendario();
-        }       
+        }
     }//GEN-LAST:event_jCalendarEntradaPropertyChange
 
     private void txtEntradaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtEntradaMouseClicked
@@ -396,56 +454,72 @@ public class Reserva extends javax.swing.JPanel {
     }//GEN-LAST:event_txtSalidaMouseClicked
 
     private void jCalendarSalidaPropertyChange(java.beans.PropertyChangeEvent evt) {//GEN-FIRST:event_jCalendarSalidaPropertyChange
-        
+
         if (calendarioVisible && evt.getOldValue() != null) {
             SimpleDateFormat ff = new SimpleDateFormat("dd/MM/yyyy");
             txtSalida.setText(ff.format(jCalendarSalida.getDate()));
             toggleCalendarioS();
-        } 
-        
+        }
+
     }//GEN-LAST:event_jCalendarSalidaPropertyChange
 
-    
+    private void comboRetencionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_comboRetencionActionPerformed
+        if (comboRetencion.getSelectedItem().equals("Si")) {
+            txtRetencion.setVisible(true);
+            lblRetencion.setVisible(true);
+        } else {
+            txtRetencion.setVisible(false);
+            lblRetencion.setVisible(false);
+        }
+    }//GEN-LAST:event_comboRetencionActionPerformed
+
+    private void comboEstadoReservaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_comboEstadoReservaActionPerformed
+        if (comboEstadoReserva.getSelectedItem().equals("Anticipo")) {
+            lblAnticipo.setVisible(true);
+            txtAnticipo.setVisible(true);
+        } else {
+            lblAnticipo.setVisible(false);
+            txtAnticipo.setVisible(false);
+        }
+    }//GEN-LAST:event_comboEstadoReservaActionPerformed
+
     private void toggleCalendario() {
         calendarioVisible = !calendarioVisible;
         jCalendarEntrada.setVisible(calendarioVisible);
         if (calendarioVisible) {
-            
+
             jCalendarEntrada.requestFocusInWindow();
         } else {
-        txtEntrada.requestFocusInWindow();
+            txtEntrada.requestFocusInWindow();
         }
     }
-    
-        private void toggleCalendarioS() {
+
+    private void toggleCalendarioS() {
         calendarioVisible = !calendarioVisible;
         jCalendarSalida.setVisible(calendarioVisible);
         if (calendarioVisible) {
-            
+
             jCalendarSalida.requestFocusInWindow();
         } else {
-        txtSalida.requestFocusInWindow();
+            txtSalida.requestFocusInWindow();
         }
     }
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JSpinner JSpinnerHora;
     private javax.swing.JPanel bg;
+    private javax.swing.JComboBox<String> comboEstadoReserva;
+    private javax.swing.JComboBox<String> comboRetencion;
     private javax.swing.JPanel header;
     private javax.swing.JButton jButton1;
     private com.toedter.calendar.JCalendar jCalendarEntrada;
     private com.toedter.calendar.JCalendar jCalendarSalida;
-    private javax.swing.JComboBox<String> jComboBox1;
-    private javax.swing.JComboBox<String> jComboBox2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
-    private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel15;
-    private javax.swing.JLabel jLabel16;
     private javax.swing.JLabel jLabel17;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
@@ -457,11 +531,20 @@ public class Reserva extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JSpinner jSpinner1;
-    private javax.swing.JTextField jTextField1;
-    private javax.swing.JTextField jTextField2;
     private javax.swing.JTextField jTextField3;
     private javax.swing.JLabel lbSalida;
+    private javax.swing.JLabel lblAnticipo;
+    private javax.swing.JLabel lblDireccion;
+    private javax.swing.JLabel lblDocumento;
+    private javax.swing.JLabel lblEmail;
+    private javax.swing.JLabel lblNombre;
+    private javax.swing.JLabel lblOcupacion;
+    private javax.swing.JLabel lblRetencion;
+    private javax.swing.JLabel lbltelefono;
+    private javax.swing.JSpinner spinerLlegada;
+    private javax.swing.JTextField txtAnticipo;
     private javax.swing.JTextField txtEntrada;
+    private javax.swing.JTextField txtRetencion;
     private javax.swing.JTextField txtSalida;
     private javax.swing.JTextField txthb;
     // End of variables declaration//GEN-END:variables

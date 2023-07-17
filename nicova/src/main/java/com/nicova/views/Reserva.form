@@ -61,31 +61,51 @@
               <Group type="103" groupAlignment="0" attributes="0">
                   <Component id="jLabel1" alignment="1" max="32767" attributes="0"/>
                   <Group type="102" attributes="0">
-                      <EmptySpace min="-2" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="48" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Group type="102" alignment="0" attributes="0">
-                              <Component id="jLabel2" pref="116" max="32767" attributes="0"/>
+                              <Component id="jLabel2" max="32767" attributes="0"/>
                               <EmptySpace min="27" pref="27" max="-2" attributes="0"/>
                           </Group>
                           <Component id="jLabel3" alignment="0" max="32767" attributes="0"/>
                       </Group>
-                      <EmptySpace min="-2" pref="238" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                          <Group type="102" attributes="0">
+                              <EmptySpace min="-2" pref="3" max="-2" attributes="0"/>
+                              <Component id="lblNombre" min="-2" pref="205" max="-2" attributes="0"/>
+                          </Group>
+                          <Group type="102" attributes="0">
+                              <EmptySpace type="separate" max="-2" attributes="0"/>
+                              <Component id="lblDocumento" max="32767" attributes="0"/>
+                          </Group>
+                      </Group>
+                      <EmptySpace min="-2" pref="32" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="jLabel4" pref="116" max="32767" attributes="0"/>
+                          <Component id="jLabel4" max="32767" attributes="0"/>
                           <Group type="102" alignment="0" attributes="0">
                               <Component id="jLabel5" max="32767" attributes="0"/>
                               <EmptySpace min="5" pref="5" max="-2" attributes="0"/>
                           </Group>
                       </Group>
-                      <EmptySpace min="-2" pref="322" max="-2" attributes="0"/>
+                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Component id="lblEmail" min="-2" pref="217" max="-2" attributes="0"/>
+                          <Component id="lbltelefono" min="-2" pref="204" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace min="-2" pref="95" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Group type="102" alignment="0" attributes="0">
-                              <Component id="jLabel6" pref="73" max="32767" attributes="0"/>
-                              <EmptySpace min="74" pref="74" max="-2" attributes="0"/>
+                              <Component id="jLabel7" max="32767" attributes="0"/>
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Component id="lblDireccion" min="-2" pref="171" max="-2" attributes="0"/>
                           </Group>
-                          <Component id="jLabel7" max="32767" attributes="0"/>
+                          <Group type="102" alignment="0" attributes="0">
+                              <Component id="jLabel6" max="32767" attributes="0"/>
+                              <EmptySpace min="-2" pref="59" max="-2" attributes="0"/>
+                              <Component id="lblOcupacion" min="-2" pref="192" max="-2" attributes="0"/>
+                          </Group>
                       </Group>
-                      <EmptySpace min="-2" pref="233" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="58" max="-2" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -95,15 +115,28 @@
                       <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
                       <EmptySpace min="-2" pref="16" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                          <Component id="lblEmail" max="32767" attributes="0"/>
                           <Component id="jLabel6" max="32767" attributes="0"/>
-                          <Component id="jLabel4" max="32767" attributes="0"/>
-                          <Component id="jLabel2" pref="30" max="32767" attributes="0"/>
+                          <Component id="jLabel4" min="-2" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="3" attributes="0">
+                              <Component id="jLabel2" alignment="3" max="32767" attributes="0"/>
+                              <Component id="lblNombre" alignment="3" min="-2" pref="30" max="-2" attributes="0"/>
+                          </Group>
+                          <Component id="lblOcupacion" max="32767" attributes="0"/>
                       </Group>
                       <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                          <Component id="jLabel3" pref="30" max="32767" attributes="0"/>
-                          <Component id="jLabel5" max="32767" attributes="0"/>
+                          <Group type="103" groupAlignment="3" attributes="0">
+                              <Component id="jLabel3" alignment="3" max="32767" attributes="0"/>
+                              <Component id="lblDocumento" alignment="3" min="-2" pref="30" max="-2" attributes="0"/>
+                          </Group>
+                          <Component id="jLabel5" min="-2" max="-2" attributes="0"/>
                           <Component id="jLabel7" max="32767" attributes="0"/>
+                          <Group type="102" attributes="0">
+                              <Component id="lbltelefono" max="32767" attributes="0"/>
+                              <EmptySpace max="-2" attributes="0"/>
+                          </Group>
+                          <Component id="lblDireccion" max="32767" attributes="0"/>
                       </Group>
                   </Group>
               </Group>
@@ -167,6 +200,18 @@
                 <Property name="text" type="java.lang.String" value="Direccion de Residencia:"/>
               </Properties>
             </Component>
+            <Component class="javax.swing.JLabel" name="lblNombre">
+            </Component>
+            <Component class="javax.swing.JLabel" name="lblDocumento">
+            </Component>
+            <Component class="javax.swing.JLabel" name="lblEmail">
+            </Component>
+            <Component class="javax.swing.JLabel" name="lbltelefono">
+            </Component>
+            <Component class="javax.swing.JLabel" name="lblOcupacion">
+            </Component>
+            <Component class="javax.swing.JLabel" name="lblDireccion">
+            </Component>
           </SubComponents>
         </Container>
         <Container class="javax.swing.JPanel" name="jPanel1">
@@ -185,10 +230,10 @@
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Group type="102" attributes="0">
                               <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="jLabel13" max="32767" attributes="0"/>
+                                  <Component id="lblAnticipo" max="32767" attributes="0"/>
                                   <Component id="jLabel12" max="32767" attributes="0"/>
-                                  <Component id="jComboBox1" max="32767" attributes="0"/>
-                                  <Component id="jTextField2" alignment="0" max="32767" attributes="0"/>
+                                  <Component id="comboEstadoReserva" max="32767" attributes="0"/>
+                                  <Component id="txtAnticipo" alignment="0" max="32767" attributes="0"/>
                               </Group>
                               <EmptySpace min="-2" pref="100" max="-2" attributes="0"/>
                           </Group>
@@ -209,19 +254,19 @@
                               <EmptySpace min="-2" pref="92" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" attributes="0">
                                   <Component id="jLabel14" max="32767" attributes="0"/>
-                                  <Component id="JSpinnerHora" max="32767" attributes="0"/>
+                                  <Component id="spinerLlegada" max="32767" attributes="0"/>
                               </Group>
                               <EmptySpace min="-2" pref="120" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="jLabel16" max="32767" attributes="0"/>
+                                  <Component id="lblRetencion" max="32767" attributes="0"/>
                                   <Group type="102" alignment="0" attributes="0">
                                       <Group type="103" groupAlignment="0" attributes="0">
                                           <Component id="jLabel15" max="32767" attributes="0"/>
-                                          <Component id="jComboBox2" max="32767" attributes="0"/>
+                                          <Component id="comboRetencion" max="32767" attributes="0"/>
                                       </Group>
                                       <EmptySpace min="10" pref="10" max="-2" attributes="0"/>
                                   </Group>
-                                  <Component id="jTextField1" alignment="0" max="32767" attributes="0"/>
+                                  <Component id="txtRetencion" alignment="0" max="32767" attributes="0"/>
                               </Group>
                               <EmptySpace min="-2" pref="154" max="-2" attributes="0"/>
                           </Group>
@@ -287,12 +332,12 @@
                               <Component id="txtEntrada" min="-2" pref="30" max="-2" attributes="0"/>
                           </Group>
                       </Group>
-                      <EmptySpace min="-2" pref="86" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="50" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Group type="102" attributes="0">
                               <Component id="jLabel12" min="-2" pref="30" max="-2" attributes="0"/>
                               <EmptySpace min="-2" max="-2" attributes="0"/>
-                              <Component id="jComboBox1" min="-2" pref="30" max="-2" attributes="0"/>
+                              <Component id="comboEstadoReserva" min="-2" pref="30" max="-2" attributes="0"/>
                           </Group>
                           <Group type="102" attributes="0">
                               <Group type="103" groupAlignment="3" attributes="0">
@@ -303,20 +348,20 @@
                               <EmptySpace min="-2" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="3" attributes="0">
                                   <Component id="jSpinner1" alignment="3" min="-2" pref="30" max="-2" attributes="0"/>
-                                  <Component id="JSpinnerHora" alignment="3" min="-2" pref="30" max="-2" attributes="0"/>
-                                  <Component id="jComboBox2" alignment="3" min="-2" pref="30" max="-2" attributes="0"/>
+                                  <Component id="spinerLlegada" alignment="3" min="-2" pref="30" max="-2" attributes="0"/>
+                                  <Component id="comboRetencion" alignment="3" min="-2" pref="30" max="-2" attributes="0"/>
                               </Group>
                           </Group>
                       </Group>
                       <EmptySpace type="unrelated" min="-2" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="jLabel13" alignment="3" min="-2" pref="30" max="-2" attributes="0"/>
-                          <Component id="jLabel16" alignment="3" min="-2" pref="30" max="-2" attributes="0"/>
+                          <Component id="lblAnticipo" alignment="3" min="-2" pref="30" max="-2" attributes="0"/>
+                          <Component id="lblRetencion" alignment="3" min="-2" pref="30" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace min="-2" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="jTextField2" alignment="3" min="-2" pref="30" max="-2" attributes="0"/>
-                          <Component id="jTextField1" alignment="3" min="-2" pref="30" max="-2" attributes="0"/>
+                          <Component id="txtAnticipo" alignment="3" min="-2" pref="30" max="-2" attributes="0"/>
+                          <Component id="txtRetencion" alignment="3" min="-2" pref="30" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace type="separate" min="-2" max="-2" attributes="0"/>
                       <Component id="jLabel17" min="-2" max="-2" attributes="0"/>
@@ -432,7 +477,7 @@
                 <Property name="text" type="java.lang.String" value="Estado De Reserva"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JComboBox" name="jComboBox1">
+            <Component class="javax.swing.JComboBox" name="comboEstadoReserva">
               <Properties>
                 <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
                   <StringArray count="3">
@@ -442,11 +487,14 @@
                   </StringArray>
                 </Property>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="comboEstadoReservaActionPerformed"/>
+              </Events>
               <AuxValues>
                 <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
               </AuxValues>
             </Component>
-            <Component class="javax.swing.JLabel" name="jLabel13">
+            <Component class="javax.swing.JLabel" name="lblAnticipo">
               <Properties>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Segoe UI" size="14" style="1"/>
@@ -457,7 +505,7 @@
                 <Property name="text" type="java.lang.String" value="Cantidad De Anticipo"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JTextField" name="jTextField2">
+            <Component class="javax.swing.JTextField" name="txtAnticipo">
             </Component>
             <Component class="javax.swing.JLabel" name="jLabel14">
               <Properties>
@@ -470,7 +518,157 @@
                 <Property name="text" type="java.lang.String" value="Hora De Llegada"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JSpinner" name="JSpinnerHora">
+            <Component class="javax.swing.JSpinner" name="spinerLlegada">
+              <Properties>
+                <Property name="model" type="javax.swing.SpinnerModel" editor="org.netbeans.modules.form.editors2.SpinnerModelEditor">
+                  <SpinnerModel type="list">
+                    <ListItem value="00:00"/>
+                    <ListItem value="00:10"/>
+                    <ListItem value="00:20"/>
+                    <ListItem value="00:30"/>
+                    <ListItem value="00:40"/>
+                    <ListItem value="00:50"/>
+                    <ListItem value="01:00"/>
+                    <ListItem value="01:10"/>
+                    <ListItem value="01:20"/>
+                    <ListItem value="01:30"/>
+                    <ListItem value="01:40"/>
+                    <ListItem value="01:50"/>
+                    <ListItem value="02:00"/>
+                    <ListItem value="02:10"/>
+                    <ListItem value="02:20"/>
+                    <ListItem value="02:30"/>
+                    <ListItem value="02:40"/>
+                    <ListItem value="02:50"/>
+                    <ListItem value="03:00"/>
+                    <ListItem value="03:10"/>
+                    <ListItem value="03:20"/>
+                    <ListItem value="03:30"/>
+                    <ListItem value="03:40"/>
+                    <ListItem value="03:50"/>
+                    <ListItem value="04:00"/>
+                    <ListItem value="04:10"/>
+                    <ListItem value="04:20"/>
+                    <ListItem value="04:30"/>
+                    <ListItem value="04:40"/>
+                    <ListItem value="04:50"/>
+                    <ListItem value="05:00"/>
+                    <ListItem value="05:10"/>
+                    <ListItem value="05:20"/>
+                    <ListItem value="05:30"/>
+                    <ListItem value="05:40"/>
+                    <ListItem value="05:50"/>
+                    <ListItem value="06:00"/>
+                    <ListItem value="06:10"/>
+                    <ListItem value="06:20"/>
+                    <ListItem value="06:30"/>
+                    <ListItem value="06:40"/>
+                    <ListItem value="06:50"/>
+                    <ListItem value="07:00"/>
+                    <ListItem value="07:10"/>
+                    <ListItem value="07:20"/>
+                    <ListItem value="07:30"/>
+                    <ListItem value="07:40"/>
+                    <ListItem value="07:50"/>
+                    <ListItem value="08:00"/>
+                    <ListItem value="08:10"/>
+                    <ListItem value="08:20"/>
+                    <ListItem value="08:30"/>
+                    <ListItem value="08:40"/>
+                    <ListItem value="08:50"/>
+                    <ListItem value="09:00"/>
+                    <ListItem value="09:10"/>
+                    <ListItem value="09:20"/>
+                    <ListItem value="09:30"/>
+                    <ListItem value="09:40"/>
+                    <ListItem value="09:50"/>
+                    <ListItem value="10:00"/>
+                    <ListItem value="10:10"/>
+                    <ListItem value="10:20"/>
+                    <ListItem value="10:30"/>
+                    <ListItem value="10:40"/>
+                    <ListItem value="10:50"/>
+                    <ListItem value="11:00"/>
+                    <ListItem value="11:10"/>
+                    <ListItem value="11:20"/>
+                    <ListItem value="11:30"/>
+                    <ListItem value="11:40"/>
+                    <ListItem value="11:50"/>
+                    <ListItem value="12:00"/>
+                    <ListItem value="12:10"/>
+                    <ListItem value="12:20"/>
+                    <ListItem value="12:30"/>
+                    <ListItem value="12:40"/>
+                    <ListItem value="12:50"/>
+                    <ListItem value="13:00"/>
+                    <ListItem value="13:10"/>
+                    <ListItem value="13:20"/>
+                    <ListItem value="13:30"/>
+                    <ListItem value="13:40"/>
+                    <ListItem value="13:50"/>
+                    <ListItem value="14:00"/>
+                    <ListItem value="14:10"/>
+                    <ListItem value="14:20"/>
+                    <ListItem value="14:30"/>
+                    <ListItem value="14:40"/>
+                    <ListItem value="14:50"/>
+                    <ListItem value="15:00"/>
+                    <ListItem value="15:10"/>
+                    <ListItem value="15:20"/>
+                    <ListItem value="15:30"/>
+                    <ListItem value="15:40"/>
+                    <ListItem value="15:50"/>
+                    <ListItem value="16:00"/>
+                    <ListItem value="16:10"/>
+                    <ListItem value="16:20"/>
+                    <ListItem value="16:30"/>
+                    <ListItem value="16:40"/>
+                    <ListItem value="16:50"/>
+                    <ListItem value="17:00"/>
+                    <ListItem value="17:10"/>
+                    <ListItem value="17:20"/>
+                    <ListItem value="17:30"/>
+                    <ListItem value="17:40"/>
+                    <ListItem value="17:50"/>
+                    <ListItem value="18:00"/>
+                    <ListItem value="18:10"/>
+                    <ListItem value="18:20"/>
+                    <ListItem value="18:30"/>
+                    <ListItem value="18:40"/>
+                    <ListItem value="18:50"/>
+                    <ListItem value="19:00"/>
+                    <ListItem value="19:10"/>
+                    <ListItem value="19:20"/>
+                    <ListItem value="19:30"/>
+                    <ListItem value="19:40"/>
+                    <ListItem value="19:50"/>
+                    <ListItem value="20:00"/>
+                    <ListItem value="20:10"/>
+                    <ListItem value="20:20"/>
+                    <ListItem value="20:30"/>
+                    <ListItem value="20:40"/>
+                    <ListItem value="20:50"/>
+                    <ListItem value="21:00"/>
+                    <ListItem value="21:10"/>
+                    <ListItem value="21:20"/>
+                    <ListItem value="21:30"/>
+                    <ListItem value="21:40"/>
+                    <ListItem value="21:50"/>
+                    <ListItem value="22:00"/>
+                    <ListItem value="22:10"/>
+                    <ListItem value="22:20"/>
+                    <ListItem value="22:30"/>
+                    <ListItem value="22:40"/>
+                    <ListItem value="22:50"/>
+                    <ListItem value="23:00"/>
+                    <ListItem value="23:10"/>
+                    <ListItem value="23:20"/>
+                    <ListItem value="23:30"/>
+                    <ListItem value="23:40"/>
+                    <ListItem value="23:50"/>
+                  </SpinnerModel>
+                </Property>
+              </Properties>
             </Component>
             <Component class="javax.swing.JLabel" name="jLabel15">
               <Properties>
@@ -483,7 +681,7 @@
                 <Property name="text" type="java.lang.String" value="Retenci&#xf3;n En La Fuente"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JComboBox" name="jComboBox2">
+            <Component class="javax.swing.JComboBox" name="comboRetencion">
               <Properties>
                 <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
                   <StringArray count="3">
@@ -493,11 +691,14 @@
                   </StringArray>
                 </Property>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="comboRetencionActionPerformed"/>
+              </Events>
               <AuxValues>
                 <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
               </AuxValues>
             </Component>
-            <Component class="javax.swing.JLabel" name="jLabel16">
+            <Component class="javax.swing.JLabel" name="lblRetencion">
               <Properties>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Segoe UI" size="14" style="1"/>
@@ -508,7 +709,7 @@
                 <Property name="text" type="java.lang.String" value="Porcentaje De Retenci&#xf3;n"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JTextField" name="jTextField1">
+            <Component class="javax.swing.JTextField" name="txtRetencion">
             </Component>
             <Component class="javax.swing.JLabel" name="jLabel17">
               <Properties>

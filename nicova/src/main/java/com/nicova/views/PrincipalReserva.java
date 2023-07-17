@@ -4,9 +4,12 @@
  */
 package com.nicova.views;
 
+import com.nicova.controllers.GetClientes;
+import com.nicova.objetos.Cliente;
 import java.awt.BorderLayout;
 import java.awt.Dimension;
 import java.awt.Toolkit;
+import java.util.List;
 import javax.swing.JPanel;
 
 /**
@@ -18,8 +21,31 @@ public class PrincipalReserva extends javax.swing.JPanel {
     /**
      * Creates new form PrincipalReserva
      */
+    String csvFile = "C:\\Nicova\\clientes.csv";
+    List<Cliente> listaCliente = GetClientes.leerClientes(csvFile);
+
     public PrincipalReserva() {
         initComponents();
+    }
+
+    private void checkCliente(String id) {
+        for (Cliente cliente : listaCliente) {
+            if (cliente.getDocumento().equals(id)) {
+                Reserva reserva = new Reserva();
+                reserva.SetDatos(cliente);
+                Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
+                jPanel1.setSize(screenSize.width, screenSize.height);
+
+                // Establecer el layout del Content
+                jPanel1.setLayout(new BorderLayout());
+
+                // Establecer el JPanel en la región central
+                jPanel1.removeAll();
+                jPanel1.add(reserva, BorderLayout.CENTER);
+                jPanel1.revalidate();
+                jPanel1.repaint();
+            }
+        }
     }
 
     /**
@@ -35,7 +61,7 @@ public class PrincipalReserva extends javax.swing.JPanel {
         bg = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
+        txtDocumento = new javax.swing.JTextField();
         jButton1 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
 
@@ -50,8 +76,6 @@ public class PrincipalReserva extends javax.swing.JPanel {
         jLabel2.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel2.setText("Número De Documento");
-
-        jTextField1.setText("Ingrese el número de documento");
 
         jButton1.setText("Realizar reserva");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
@@ -87,7 +111,7 @@ public class PrincipalReserva extends javax.swing.JPanel {
                             .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(bgLayout.createSequentialGroup()
                         .addGap(67, 67, 67)
-                        .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 208, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(txtDocumento, javax.swing.GroupLayout.PREFERRED_SIZE, 208, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap())
         );
         bgLayout.setVerticalGroup(
@@ -98,7 +122,7 @@ public class PrincipalReserva extends javax.swing.JPanel {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(txtDocumento, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(29, 29, 29)
                 .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(92, 92, 92)
@@ -142,7 +166,7 @@ public class PrincipalReserva extends javax.swing.JPanel {
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        showContent(new Reserva());           // TODO add your handling code here:
+        checkCliente(txtDocumento.getText());        // TODO add your handling code here:
     }//GEN-LAST:event_jButton1ActionPerformed
 
 
@@ -153,7 +177,7 @@ public class PrincipalReserva extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JTextField jTextField1;
+    private javax.swing.JTextField txtDocumento;
     // End of variables declaration//GEN-END:variables
 
     public void showContent(JPanel p) {
