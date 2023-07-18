@@ -164,6 +164,7 @@ public class Login extends javax.swing.JFrame {
 
                     ventana.setLocation(0, 0);
                     ventana.setUser(user);
+                    
 
                     ventana.setVisible(true);
                     dispose();

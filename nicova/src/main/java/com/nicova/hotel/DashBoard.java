@@ -6,6 +6,8 @@ package com.nicova.hotel;
 
 import com.formdev.flatlaf.FlatLightLaf;
 import com.nicova.connetion.checkConnetion;
+import com.nicova.controllers.GetHabitaciones;
+import com.nicova.objetos.Habitacion;
 import com.nicova.objetos.Usuario;
 import com.nicova.views.Clientes;
 import com.nicova.views.CrearEmpleado;
@@ -34,8 +36,11 @@ import java.awt.*;
  * @author jhoja
  */
 public class DashBoard extends javax.swing.JFrame {
+    String csvFile = "C:\\Nicova\\habitaciones.csv";
+    java.util.List<Habitacion> listaHabitaciones = GetHabitaciones.leerHabitaciones(csvFile);
 
-    public Usuario user;
+    public static Usuario user;
+    
 
     public DashBoard() throws GeneralSecurityException {
         initComponents();
@@ -60,6 +65,7 @@ public class DashBoard extends javax.swing.JFrame {
     }
 
     private void inicializar() throws GeneralSecurityException {
+        verificarYCrearArchivoCSV("C:\\Nicova\\usuarios.csv", "1cefRJ-THNlI1LK7PpmIHG0k4XNHzPTip_gdRYmp-HrQ");
         verificarYCrearArchivoCSV("C:\\Nicova\\clientes.csv", "1f2tjSzo8NbGoYk-ERMuGhaOrSD7x1FaQ4XJOBuBVCt8");
         verificarYCrearArchivoCSV("C:\\Nicova\\habitaciones.csv", "1qoVpY0OlMSxq8529Zvc755A3akkBcuCCNABnYaWSJLI");
 
@@ -117,8 +123,23 @@ public class DashBoard extends javax.swing.JFrame {
         Locale spanishLocale = new Locale("es", "ES");
         lblDate.setText(now.format(DateTimeFormatter.ofPattern("'Fecha:  ' EEEE dd 'de' MMMM 'de' yyyy", spanishLocale)));
     }
-
+    
+    public void initConteo(){
+        int habitacionesDispo = 0;
+        int habitacionesOcupa = 0;
+        for (Habitacion room : listaHabitaciones) {
+            if (room.isDisponible()) {
+                habitacionesDispo = habitacionesDispo + 1;
+            }else{
+                habitacionesOcupa = habitacionesOcupa + 1;
+            }
+            
+        }
+        lblnumeroDispo.setText(String.valueOf(habitacionesDispo));
+        lblNumeroOcupadas.setText(String.valueOf(habitacionesOcupa));
+    }
     private void InitStyles() {
+        initConteo();
         lblUser.putClientProperty("FlatLaf.styleClass", "h2");
         lblDate.putClientProperty("FlatLaf.styleClass", "h2");
         lblNicova.putClientProperty("FlatLaf.styleClass", "h00");
