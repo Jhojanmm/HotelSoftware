@@ -4,26 +4,25 @@
  */
 package com.nicova.objetos;
 
-import java.util.Date;
-
-public class Reserva {
-    private int idHabitacion;
-    private int idCliente;
-    private int idCreador;
-    private Date fechaEntrada;
-    private Date fechaSalida;
+public class ReservaObjeto {
+    private String idHabitacion;
+    private String idCliente;
+    private String idCreador;
+    private String fechaEntrada;
+    private String fechaSalida;
     private String estadoReserva;
-    private int cantidadPersonas;
+    private String cantidadPersonas;
     private String horaLlegada;
-    private double retencionFuente;
-    private double cantidadAnticipo;
-    private double porcentajeRetencion;
-    private double total;
+    private String retencionFuente;
+    private String cantidadAnticipo;
+    private String porcentajeRetencion;
+    private String total;
 
     // Constructor
-    public Reserva(int idHabitacion, int idCliente, int idCreador, Date fechaEntrada, Date fechaSalida, String estadoReserva,
-                   int cantidadPersonas, String horaLlegada, double retencionFuente,
-                   double cantidadAnticipo, double porcentajeRetencion, double total) {
+    public ReservaObjeto(String idHabitacion, String idCliente, String idCreador, String fechaEntrada,
+                   String fechaSalida, String estadoReserva, String cantidadPersonas,
+                   String horaLlegada, String retencionFuente, String cantidadAnticipo,
+                   String porcentajeRetencion, String total) {
         this.idHabitacion = idHabitacion;
         this.idCliente = idCliente;
         this.idCreador = idCreador;
@@ -40,27 +39,43 @@ public class Reserva {
 
     // Getters y Setters (opcional, puedes generarlos automáticamente en tu IDE)
 
-    public int getIdHabitacion() {
+    public String getIdHabitacion() {
         return idHabitacion;
     }
 
-    public void setIdHabitacion(int idHabitacion) {
+    public void setIdHabitacion(String idHabitacion) {
         this.idHabitacion = idHabitacion;
     }
 
-    public Date getFechaEntrada() {
+    public String getIdCliente() {
+        return idCliente;
+    }
+
+    public void setIdCliente(String idCliente) {
+        this.idCliente = idCliente;
+    }
+
+    public String getIdCreador() {
+        return idCreador;
+    }
+
+    public void setIdCreador(String idCreador) {
+        this.idCreador = idCreador;
+    }
+
+    public String getFechaEntrada() {
         return fechaEntrada;
     }
 
-    public void setFechaEntrada(Date fechaEntrada) {
+    public void setFechaEntrada(String fechaEntrada) {
         this.fechaEntrada = fechaEntrada;
     }
 
-    public Date getFechaSalida() {
+    public String getFechaSalida() {
         return fechaSalida;
     }
 
-    public void setFechaSalida(Date fechaSalida) {
+    public void setFechaSalida(String fechaSalida) {
         this.fechaSalida = fechaSalida;
     }
 
@@ -72,11 +87,11 @@ public class Reserva {
         this.estadoReserva = estadoReserva;
     }
 
-    public int getCantidadPersonas() {
+    public String getCantidadPersonas() {
         return cantidadPersonas;
     }
 
-    public void setCantidadPersonas(int cantidadPersonas) {
+    public void setCantidadPersonas(String cantidadPersonas) {
         this.cantidadPersonas = cantidadPersonas;
     }
 
@@ -88,35 +103,35 @@ public class Reserva {
         this.horaLlegada = horaLlegada;
     }
 
-    public double getRetencionFuente() {
+    public String getRetencionFuente() {
         return retencionFuente;
     }
 
-    public void setRetencionFuente(double retencionFuente) {
+    public void setRetencionFuente(String retencionFuente) {
         this.retencionFuente = retencionFuente;
     }
 
-    public double getCantidadAnticipo() {
+    public String getCantidadAnticipo() {
         return cantidadAnticipo;
     }
 
-    public void setCantidadAnticipo(double cantidadAnticipo) {
+    public void setCantidadAnticipo(String cantidadAnticipo) {
         this.cantidadAnticipo = cantidadAnticipo;
     }
 
-    public double getPorcentajeRetencion() {
+    public String getPorcentajeRetencion() {
         return porcentajeRetencion;
     }
 
-    public void setPorcentajeRetencion(double porcentajeRetencion) {
+    public void setPorcentajeRetencion(String porcentajeRetencion) {
         this.porcentajeRetencion = porcentajeRetencion;
     }
 
-    public double getTotal() {
+    public String getTotal() {
         return total;
     }
 
-    public void setTotal(double total) {
+    public void setTotal(String total) {
         this.total = total;
     }
 }
