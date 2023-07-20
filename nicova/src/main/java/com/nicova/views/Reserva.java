@@ -229,6 +229,11 @@ public class Reserva extends javax.swing.JPanel {
                 txtEntradaMouseClicked(evt);
             }
         });
+        txtEntrada.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtEntradaActionPerformed(evt);
+            }
+        });
 
         lbSalida.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         lbSalida.setForeground(new java.awt.Color(204, 204, 204));
@@ -530,6 +535,10 @@ public class Reserva extends javax.swing.JPanel {
             Clear();
         }
     }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void txtEntradaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtEntradaActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtEntradaActionPerformed
 
     private void toggleCalendario() {
         calendarioVisible = !calendarioVisible;

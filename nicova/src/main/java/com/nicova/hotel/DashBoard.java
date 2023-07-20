@@ -15,6 +15,7 @@ import com.nicova.views.Ganancias;
 import com.nicova.views.Habitaciones;
 import com.nicova.views.Inventario;
 import com.nicova.views.Principal;
+import com.nicova.views.PrincipalInventario;
 import com.nicova.views.PrincipalReserva;
 import com.nicova.views.UpBooks;
 import java.awt.BorderLayout;
@@ -635,7 +636,7 @@ public class DashBoard extends javax.swing.JFrame {
     }//GEN-LAST:event_PrincipalActionPerformed
 
     private void lblReserva2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_lblReserva2ActionPerformed
-        showContent(new Inventario());
+        showContent(new PrincipalInventario());
     }//GEN-LAST:event_lblReserva2ActionPerformed
 
     private void btnGananciasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGananciasActionPerformed

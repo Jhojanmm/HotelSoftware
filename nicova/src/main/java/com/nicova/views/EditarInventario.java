@@ -10,12 +10,12 @@ import java.text.SimpleDateFormat;
  *
  * @author jhoja
  */
-public class Inventario extends javax.swing.JPanel {
+public class EditarInventario extends javax.swing.JPanel {
 
     /**
      * Creates new form Inventario
      */
-    public Inventario() {
+    public EditarInventario() {
         initComponents();
     }
 
@@ -43,7 +43,7 @@ public class Inventario extends javax.swing.JPanel {
 
         jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel1.setText("Agregar Producto");
+        jLabel1.setText("Editar Producto");
 
         jLabel2.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jLabel2.setText("Nombre Del Producto");
@@ -57,7 +57,7 @@ public class Inventario extends javax.swing.JPanel {
         jTextField2.setToolTipText("");
 
         jButton1.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        jButton1.setText("Agregar Producto");
+        jButton1.setText("Editar Producto");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
